@@ -117,6 +117,14 @@ public:
         pushButton = new QPushButton(authorization);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setMinimumSize(QSize(20, 100));
+        pushButton->setStyleSheet(QString::fromUtf8("background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"\n"
+"QPushButton { \n"
+"color: red ;\n"
+"}"));
 
         verticalLayout_2->addWidget(pushButton);
 

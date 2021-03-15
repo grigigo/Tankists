@@ -56,11 +56,37 @@ public:
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         sign_up_button = new QPushButton(registrationwind);
         sign_up_button->setObjectName(QString::fromUtf8("sign_up_button"));
+        sign_up_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
 
         verticalLayout_2->addWidget(sign_up_button);
 
         back_button = new QPushButton(registrationwind);
         back_button->setObjectName(QString::fromUtf8("back_button"));
+        back_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
 
         verticalLayout_2->addWidget(back_button);
 
@@ -85,6 +111,19 @@ public:
         comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setMinimumSize(QSize(0, 40));
+        comboBox->setStyleSheet(QString::fromUtf8("QComboBox {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QComboBox:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QComboBox:pressed {\n"
+" background-color: #666666\n"
+"}"));
 
         verticalLayout_3->addWidget(comboBox);
 
