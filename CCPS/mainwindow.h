@@ -29,5 +29,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Work *work;
+    registrationwind *registr;
 };
 #endif // MAINWINDOW_H

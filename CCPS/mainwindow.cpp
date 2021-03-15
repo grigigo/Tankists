@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "work.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,8 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_6->setVisible(false);
 
     work = new Work;
+    registr = new registrationwind;
 
     connect(work, &Work::signM, this, &MainWindow::show);
+    connect(registr, &registrationwind::signReg, this, &MainWindow::show);
 }
 
 MainWindow::~MainWindow()
@@ -40,20 +41,6 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
 
 void MainWindow::on_pushButton_2_clicked() // кнопка регистрация-назад
 {
-    QString temp=ui->pushButton_2->text();
-    if (temp=="Назад")
-    {
-    ui->pushButton_2->setText("Регистрация");
-    ui->authorization->setVisible(true);
-    //ui->Autho->setVisible(false);
-    ui->label_5->setVisible(false);
-    ui->label_6->setVisible(false);
-    }
-    else
-    {
-    ui->authorization->setVisible(false);
-    ui->pushButton_2->setText("Назад");
-    //ui->Autho->setVisible(true);
-    }
-
+    registr->show();
+    this->close();
 }

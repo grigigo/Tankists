@@ -15,20 +15,21 @@ registrationwind::~registrationwind()
     delete ui;
 }
 
-
-void registrationwind::on_pushButton_3_clicked()
+void registrationwind::on_sign_up_button_clicked()
 {
     QString login = ui->login_->text();
-     QString password = ui->password_->text();
-     if (registration(login.toStdString(),password.toStdString()))// Отправка логина и пароля
-     {
-         //ui->horizontalLayout_3->setVisible(false);
-         ui->Autho->setVisible(false);
-         //ui->horizontalLayout_5->setVisible(true);
-     }
-     else
-     {
-
-         //ui->label_6->setVisible(true);
-     }
+    QString password = ui->password_->text();
+    if (registration(login.toStdString(),password.toStdString()))// Отправка логина и пароля
+    {
+        this->on_back_button_clicked();
+    }
+    else
+    {
+        this->on_back_button_clicked();
+    }
+}
+void registrationwind::on_back_button_clicked()
+{
+    this->close();
+    emit signReg();
 }

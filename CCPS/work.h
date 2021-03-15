@@ -21,8 +21,9 @@ private slots:
 
 private:
     Ui::Work *ui;
+
 signals:
-    void signM(); // пока пусто
+    void signM();
 };
 
 

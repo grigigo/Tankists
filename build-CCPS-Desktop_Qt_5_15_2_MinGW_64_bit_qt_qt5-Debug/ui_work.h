@@ -35,7 +35,7 @@ public:
     {
         if (Work->objectName().isEmpty())
             Work->setObjectName(QString::fromUtf8("Work"));
-        Work->resize(366, 588);
+        Work->resize(390, 594);
         centralwidget = new QWidget(Work);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -53,7 +53,7 @@ public:
         Work->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Work);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 366, 20));
+        menubar->setGeometry(QRect(0, 0, 390, 20));
         Work->setMenuBar(menubar);
         statusbar = new QStatusBar(Work);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

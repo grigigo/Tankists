@@ -18,8 +18,15 @@ public:
 private slots:
     void on_pushButton_3_clicked();
 
+    void on_sign_up_button_clicked();
+
+    void on_back_button_clicked();
+
 private:
     Ui::registrationwind *ui;
+
+signals:
+    void signReg();
 };
 
 #endif // REGISTRATIONWIND_H
