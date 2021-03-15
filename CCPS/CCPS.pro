@@ -12,15 +12,18 @@ SOURCES += \
     functions.cpp \
     main.cpp \
     mainwindow.cpp \
+    registrationwind.cpp \
     work.cpp
 
 HEADERS += \
     functions.h \
     mainwindow.h \
+    registrationwind.h \
     work.h
 
 FORMS += \
     mainwindow.ui \
+    registrationwind.ui \
     work.ui
 
 # Default rules for deployment.

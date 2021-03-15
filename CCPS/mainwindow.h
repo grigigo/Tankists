@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "functions.h"
 #include "work.h"
+#include "registrationwind.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
