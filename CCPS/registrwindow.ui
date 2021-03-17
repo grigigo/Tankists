@@ -106,6 +106,12 @@ QComboBox:pressed {
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QPushButton" name="sign_up_button">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {background-color: #555555;
 border-radius: 15%;
@@ -128,6 +134,12 @@ QPushButton:pressed {
         </item>
         <item>
          <widget class="QPushButton" name="back_button">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {background-color: #555555;
 border-radius: 15%;
