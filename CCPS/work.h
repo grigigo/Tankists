@@ -17,11 +17,16 @@ public:
 
 private slots:
 
+    void on_back_button_clicked();
+
 private:
     Ui::Work *ui;
+
 signals:
-    void signM(); // пока пусто
+    void signM();
 };
+
+
 
 #endif // WORK_H
 

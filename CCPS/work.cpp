@@ -14,3 +14,8 @@ Work::~Work()
     delete ui;
 }
 
+void Work::on_back_button_clicked()
+{
+    hide();
+    emit signM();
+}

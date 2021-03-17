@@ -1,4 +1,4 @@
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,15 +12,18 @@ SOURCES += \
     functions.cpp \
     main.cpp \
     mainwindow.cpp \
+    registrwindow.cpp \
     work.cpp
 
 HEADERS += \
     functions.h \
     mainwindow.h \
+    registrwindow.h \
     work.h
 
 FORMS += \
     mainwindow.ui \
+    registrwindow.ui \
     work.ui
 
 # Default rules for deployment.
