@@ -19,7 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
     int pix_h = ui->picture->height();*/
 
 
-    ui->picture->setPixmap(pix.scaled(r.width(), r.width(), Qt::KeepAspectRatio));
+    ui->picture->setPixmap(pix.scaled(r.width()/1.5, r.width()/1.5, Qt::KeepAspectRatio));
+    //ui->pushButton->setFixedSize(r.width(), r.height()*0.1 );
+   // ui->pushButton->setMinimumHeight(r.width()*2);
 
     work = new Work;
     registr = new RegistrWindow;
@@ -47,8 +49,10 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
     }
     else
     {
-        ui->info->setVisible(true);
         ui->info->setWordWrap(true); // если отрицание, никуда не переходим
+
+        ui->info->setVisible(true);
+        //ui->info->setText("Неправильный логин или пароль")
     }
 }
 
