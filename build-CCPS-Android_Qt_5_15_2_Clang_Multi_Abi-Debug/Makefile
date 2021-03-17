@@ -55,7 +55,8 @@ SOURCES       = ..\CCPS\functions.cpp \
 		..\CCPS\main.cpp \
 		..\CCPS\mainwindow.cpp \
 		..\CCPS\registrwindow.cpp \
-		..\CCPS\work.cpp arm64-v8a\moc_mainwindow.cpp \
+		..\CCPS\work.cpp arm64-v8a\qrc_resources.cpp \
+		arm64-v8a\moc_mainwindow.cpp \
 		arm64-v8a\moc_registrwindow.cpp \
 		arm64-v8a\moc_work.cpp
 OBJECTS       = arm64-v8a\functions.obj \
@@ -63,6 +64,7 @@ OBJECTS       = arm64-v8a\functions.obj \
 		arm64-v8a\mainwindow.obj \
 		arm64-v8a\registrwindow.obj \
 		arm64-v8a\work.obj \
+		arm64-v8a\qrc_resources.obj \
 		arm64-v8a\moc_mainwindow.obj \
 		arm64-v8a\moc_registrwindow.obj \
 		arm64-v8a\moc_work.obj
@@ -99,6 +101,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@if not exist $(DISTDIR) mkdir $(DISTDIR) & if not exist $(DISTDIR) exit 1
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)\
+	$(COPY_FILE) --parents ..\CCPS\resources.qrc $(DISTDIR)\
 	$(COPY_FILE) --parents C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp $(DISTDIR)\
 	$(COPY_FILE) --parents ..\CCPS\functions.h ..\CCPS\mainwindow.h ..\CCPS\registrwindow.h ..\CCPS\work.h $(DISTDIR)\
 	$(COPY_FILE) --parents ..\CCPS\functions.cpp ..\CCPS\main.cpp ..\CCPS\mainwindow.cpp ..\CCPS\registrwindow.cpp ..\CCPS\work.cpp $(DISTDIR)\
@@ -135,8 +138,14 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: arm64-v8a\qrc_resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) arm64-v8a\qrc_resources.cpp
+arm64-v8a\qrc_resources.cpp: ..\CCPS\resources.qrc \
+		C:\Qt\5.15.2\android\bin\rcc.exe \
+		..\CCPS\poop.png
+	C:\Qt\5.15.2\android\bin\rcc.exe -name resources ..\CCPS\resources.qrc -o arm64-v8a\qrc_resources.cpp
+
 compiler_moc_predefs_make_all: arm64-v8a\moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) arm64-v8a\moc_predefs.h
@@ -507,7 +516,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -757,12 +766,9 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlayout.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlayoutitem.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qboxlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QGroupBox \
-		C:\Qt\5.15.2\android\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QHBoxLayout \
 		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QLineEdit \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlineedit.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtextcursor.h \
@@ -781,7 +787,16 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QStatusBar \
 		C:\Qt\5.15.2\android\include\QtWidgets\qstatusbar.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QVBoxLayout \
-		C:\Qt\5.15.2\android\include\QtWidgets\QWidget
+		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
+		C:\Qt\5.15.2\android\include\QtGui\QPixmap \
+		C:\Qt\5.15.2\android\include\QtGui\QScreen \
+		C:\Qt\5.15.2\android\include\QtGui\qscreen.h \
+		C:\Qt\5.15.2\android\include\QtCore\QList \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtCore\QRect \
+		C:\Qt\5.15.2\android\include\QtCore\QSize \
+		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
+		C:\Qt\5.15.2\android\include\QtGui\QTransform
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\mainwindow.obj ..\CCPS\mainwindow.cpp
 
 arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
@@ -892,6 +907,54 @@ arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		ui_registrwindow.h \
+		C:\Qt\5.15.2\android\include\QtCore\QVariant \
+		C:\Qt\5.15.2\android\include\QtWidgets\QApplication \
+		C:\Qt\5.15.2\android\include\QtWidgets\qapplication.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.15.2\android\include\QtCore\qeventloop.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.15.2\android\include\QtGui\qguiapplication.h \
+		C:\Qt\5.15.2\android\include\QtGui\qinputmethod.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QComboBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qcombobox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.15.2\android\include\QtGui\qvalidator.h \
+		C:\Qt\5.15.2\android\include\QtCore\qregularexpression.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qslider.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qstyle.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
+		C:\Qt\5.15.2\android\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QGridLayout \
+		C:\Qt\5.15.2\android\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qlayout.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
+		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QLineEdit \
+		C:\Qt\5.15.2\android\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextcursor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextformat.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpen.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextoption.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMenuBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmenubar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmenu.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qaction.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QPushButton \
+		C:\Qt\5.15.2\android\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.15.2\android\include\QtWidgets\QStatusBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\work.h \
 		..\CCPS\functions.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\registrwindow.obj ..\CCPS\registrwindow.cpp
@@ -1035,6 +1098,9 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		..\CCPS\functions.h \
 		..\CCPS\registrwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\work.obj ..\CCPS\work.cpp
+
+arm64-v8a\qrc_resources.obj: arm64-v8a\qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\qrc_resources.obj arm64-v8a\qrc_resources.cpp
 
 arm64-v8a\moc_mainwindow.obj: arm64-v8a\moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_mainwindow.obj arm64-v8a\moc_mainwindow.cpp
