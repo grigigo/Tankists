@@ -233,6 +233,9 @@ release/moc_mainwindow.cpp: ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
 		../CCPS/functions.h \
 		../CCPS/work.h \
+		../CCPS/registrationwind.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QDialog \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		release/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Desktop_Qt_5_15_2_MinGW_64_bit_qt_qt5-Debug/release/moc_predefs.h -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\CCPS\mainwindow.h -o release\moc_mainwindow.cpp
@@ -600,6 +603,9 @@ release/main.o: ../CCPS/main.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
 		../CCPS/functions.h \
 		../CCPS/work.h \
+		../CCPS/registrationwind.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QDialog \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -718,6 +724,9 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
 		../CCPS/functions.h \
 		../CCPS/work.h \
+		../CCPS/registrationwind.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QDialog \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		ui_mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
@@ -727,20 +736,6 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QComboBox \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGridLayout \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayout.h \
@@ -748,6 +743,7 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGroupBox \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
@@ -877,7 +873,54 @@ release/registrationwind.o: ../CCPS/registrationwind.cpp ../CCPS/registrationwin
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_registrationwind.h
+		ui_registrationwind.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QComboBox \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qcombobox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGridLayout \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayout.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QVBoxLayout \
+		../CCPS/work.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMainWindow \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmainwindow.h \
+		../CCPS/functions.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\registrationwind.o ..\CCPS\registrationwind.cpp
 
 release/work.o: ../CCPS/work.cpp ../CCPS/work.h \
@@ -1009,11 +1052,17 @@ release/work.o: ../CCPS/work.cpp ../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenu.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
 		../CCPS/mainwindow.h \
-		../CCPS/functions.h
+		../CCPS/functions.h \
+		../CCPS/registrationwind.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QDialog \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\work.o ..\CCPS\work.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

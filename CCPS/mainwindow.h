@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "functions.h"
 #include "work.h"
-#include "registrationwind.h"
+#include "registrwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,11 +24,9 @@ private slots:
 
     void on_pushButton_2_clicked();
 
-    void on_pushButton_3_clicked();
-
 private:
     Ui::MainWindow *ui;
     Work *work;
-    registrationwind *registr;
+    RegistrWindow *registr;
 };
 #endif // MAINWINDOW_H

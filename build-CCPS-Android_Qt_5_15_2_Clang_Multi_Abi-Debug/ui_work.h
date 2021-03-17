@@ -35,7 +35,7 @@ public:
     {
         if (Work->objectName().isEmpty())
             Work->setObjectName(QString::fromUtf8("Work"));
-        Work->resize(366, 588);
+        Work->resize(401, 594);
         centralwidget = new QWidget(Work);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -47,13 +47,26 @@ public:
 
         back_button = new QPushButton(centralwidget);
         back_button->setObjectName(QString::fromUtf8("back_button"));
+        back_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
 
         gridLayout->addWidget(back_button, 1, 0, 1, 1);
 
         Work->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Work);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 366, 20));
+        menubar->setGeometry(QRect(0, 0, 401, 20));
         Work->setMenuBar(menubar);
         statusbar = new QStatusBar(Work);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

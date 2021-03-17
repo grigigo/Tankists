@@ -13,7 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -27,12 +26,6 @@ class Ui_registrationwind
 {
 public:
     QVBoxLayout *verticalLayout;
-    QGridLayout *gridLayout;
-    QVBoxLayout *verticalLayout_2;
-    QPushButton *sign_up_button;
-    QPushButton *back_button;
-    QHBoxLayout *horizontalLayout_2;
-    QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout_3;
     QComboBox *comboBox;
     QSpacerItem *horizontalSpacer;
@@ -42,67 +35,17 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_4;
     QLineEdit *password_;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *sign_up_button;
+    QPushButton *back_button;
 
     void setupUi(QDialog *registrationwind)
     {
         if (registrationwind->objectName().isEmpty())
             registrationwind->setObjectName(QString::fromUtf8("registrationwind"));
-        registrationwind->resize(480, 586);
+        registrationwind->resize(551, 634);
         verticalLayout = new QVBoxLayout(registrationwind);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        gridLayout = new QGridLayout();
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        sign_up_button = new QPushButton(registrationwind);
-        sign_up_button->setObjectName(QString::fromUtf8("sign_up_button"));
-        sign_up_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
-"border-radius: 15%;\n"
-"color: white;\n"
-"border: 2px solid #444444;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" background-color: #666666\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #666666\n"
-"}"));
-
-        verticalLayout_2->addWidget(sign_up_button);
-
-        back_button = new QPushButton(registrationwind);
-        back_button->setObjectName(QString::fromUtf8("back_button"));
-        back_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
-"border-radius: 15%;\n"
-"color: white;\n"
-"border: 2px solid #444444;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" background-color: #666666\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-" background-color: #666666\n"
-"}"));
-
-        verticalLayout_2->addWidget(back_button);
-
-
-        gridLayout->addLayout(verticalLayout_2, 1, 1, 1, 1);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-
-        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 1);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-
-        gridLayout->addLayout(horizontalLayout_4, 1, 2, 1, 1);
-
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         comboBox = new QComboBox(registrationwind);
@@ -162,10 +105,48 @@ public:
         verticalLayout_3->addLayout(horizontalLayout);
 
 
-        gridLayout->addLayout(verticalLayout_3, 0, 1, 1, 1);
+        verticalLayout->addLayout(verticalLayout_3);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        sign_up_button = new QPushButton(registrationwind);
+        sign_up_button->setObjectName(QString::fromUtf8("sign_up_button"));
+        sign_up_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
+
+        verticalLayout_2->addWidget(sign_up_button);
+
+        back_button = new QPushButton(registrationwind);
+        back_button->setObjectName(QString::fromUtf8("back_button"));
+        back_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
+
+        verticalLayout_2->addWidget(back_button);
 
 
-        verticalLayout->addLayout(gridLayout);
+        verticalLayout->addLayout(verticalLayout_2);
 
 
         retranslateUi(registrationwind);
@@ -176,14 +157,14 @@ public:
     void retranslateUi(QDialog *registrationwind)
     {
         registrationwind->setWindowTitle(QCoreApplication::translate("registrationwind", "Dialog", nullptr));
-        sign_up_button->setText(QCoreApplication::translate("registrationwind", "\320\227\320\260\321\200\320\265\320\263\320\270\321\201\321\202\321\200\320\270\321\200\320\276\320\262\320\260\321\202\321\214\321\201\321\217", nullptr));
-        back_button->setText(QCoreApplication::translate("registrationwind", "\320\235\320\260\320\267\320\260\320\264", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("registrationwind", "\320\236\321\202\320\264\320\265\320\273 \320\277\321\200\320\276\320\264\320\260\320\266", nullptr));
         comboBox->setItemText(1, QCoreApplication::translate("registrationwind", "\320\236\321\202\320\264\320\265\320\273 \320\272\320\260\320\264\321\200\320\276\320\262", nullptr));
         comboBox->setItemText(2, QCoreApplication::translate("registrationwind", "\320\236\321\202\320\264\320\265\320\273 \320\277\321\200\320\276\320\264\321\203\320\272\321\202\320\260", nullptr));
 
         label_3->setText(QCoreApplication::translate("registrationwind", "<html><head/><body><p><span style=\" font-size:11pt;\">\320\233\320\276\320\263\320\270\320\275</span></p></body></html>", nullptr));
         label_4->setText(QCoreApplication::translate("registrationwind", "<html><head/><body><p><span style=\" font-size:11pt;\">\320\237\320\260\321\200\320\276\320\273\321\214</span></p></body></html>", nullptr));
+        sign_up_button->setText(QCoreApplication::translate("registrationwind", "\320\227\320\260\321\200\320\265\320\263\320\270\321\201\321\202\321\200\320\270\321\200\320\276\320\262\320\260\321\202\321\214\321\201\321\217", nullptr));
+        back_button->setText(QCoreApplication::translate("registrationwind", "\320\235\320\260\320\267\320\260\320\264", nullptr));
     } // retranslateUi
 
 };

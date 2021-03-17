@@ -55,7 +55,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(626, 657);
+        MainWindow->resize(614, 657);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -121,6 +121,19 @@ public:
         pushButton = new QPushButton(authorization);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setMinimumSize(QSize(20, 100));
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
 
         verticalLayout_2->addWidget(pushButton);
 
@@ -133,14 +146,28 @@ public:
 
         gridLayout->addWidget(info, 0, 0, 1, 1);
 
-
-        verticalLayout_3->addWidget(authorization);
-
-        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2 = new QPushButton(authorization);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setMinimumSize(QSize(0, 50));
+        pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: #555555;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #444444;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+" background-color: #666666\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+" background-color: #666666\n"
+"}"));
 
-        verticalLayout_3->addWidget(pushButton_2);
+        gridLayout->addWidget(pushButton_2, 2, 0, 1, 1);
+
+
+        verticalLayout_3->addWidget(authorization);
 
 
         gridLayout_2->addLayout(verticalLayout_3, 2, 0, 1, 1);
@@ -148,7 +175,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 626, 20));
+        menubar->setGeometry(QRect(0, 0, 614, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

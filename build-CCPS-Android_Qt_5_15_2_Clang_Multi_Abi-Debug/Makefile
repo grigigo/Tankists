@@ -54,25 +54,25 @@ OBJECTS_DIR   = arm64-v8a\\
 SOURCES       = ..\CCPS\functions.cpp \
 		..\CCPS\main.cpp \
 		..\CCPS\mainwindow.cpp \
-		..\CCPS\registrationwind.cpp \
+		..\CCPS\registrwindow.cpp \
 		..\CCPS\work.cpp arm64-v8a\moc_mainwindow.cpp \
-		arm64-v8a\moc_registrationwind.cpp \
+		arm64-v8a\moc_registrwindow.cpp \
 		arm64-v8a\moc_work.cpp
 OBJECTS       = arm64-v8a\functions.obj \
 		arm64-v8a\main.obj \
 		arm64-v8a\mainwindow.obj \
-		arm64-v8a\registrationwind.obj \
+		arm64-v8a\registrwindow.obj \
 		arm64-v8a\work.obj \
 		arm64-v8a\moc_mainwindow.obj \
-		arm64-v8a\moc_registrationwind.obj \
+		arm64-v8a\moc_registrwindow.obj \
 		arm64-v8a\moc_work.obj
 DIST          =  ..\CCPS\functions.h \
 		..\CCPS\mainwindow.h \
-		..\CCPS\registrationwind.h \
+		..\CCPS\registrwindow.h \
 		..\CCPS\work.h ..\CCPS\functions.cpp \
 		..\CCPS\main.cpp \
 		..\CCPS\mainwindow.cpp \
-		..\CCPS\registrationwind.cpp \
+		..\CCPS\registrwindow.cpp \
 		..\CCPS\work.cpp
 QMAKE_TARGET  = libCCPS_arm64-v8a.so
 DESTDIR       = 
@@ -82,7 +82,7 @@ TARGET        = libCCPS_arm64-v8a.so
 first: all
 ####### Build rules
 
-libCCPS_arm64-v8a.so: ui_mainwindow.h ui_registrationwind.h ui_work.h $(OBJECTS)  
+libCCPS_arm64-v8a.so: ui_mainwindow.h ui_registrwindow.h ui_work.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 qmake: FORCE
@@ -100,9 +100,9 @@ distdir: FORCE
 	@if not exist $(DISTDIR) mkdir $(DISTDIR) & if not exist $(DISTDIR) exit 1
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)\
 	$(COPY_FILE) --parents C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp $(DISTDIR)\
-	$(COPY_FILE) --parents ..\CCPS\functions.h ..\CCPS\mainwindow.h ..\CCPS\registrationwind.h ..\CCPS\work.h $(DISTDIR)\
-	$(COPY_FILE) --parents ..\CCPS\functions.cpp ..\CCPS\main.cpp ..\CCPS\mainwindow.cpp ..\CCPS\registrationwind.cpp ..\CCPS\work.cpp $(DISTDIR)\
-	$(COPY_FILE) --parents ..\CCPS\mainwindow.ui ..\CCPS\registrationwind.ui ..\CCPS\work.ui $(DISTDIR)\
+	$(COPY_FILE) --parents ..\CCPS\functions.h ..\CCPS\mainwindow.h ..\CCPS\registrwindow.h ..\CCPS\work.h $(DISTDIR)\
+	$(COPY_FILE) --parents ..\CCPS\functions.cpp ..\CCPS\main.cpp ..\CCPS\mainwindow.cpp ..\CCPS\registrwindow.cpp ..\CCPS\work.cpp $(DISTDIR)\
+	$(COPY_FILE) --parents ..\CCPS\mainwindow.ui ..\CCPS\registrwindow.ui ..\CCPS\work.ui $(DISTDIR)\
 
 
 clean: compiler_clean 
@@ -143,9 +143,9 @@ compiler_moc_predefs_clean:
 arm64-v8a\moc_predefs.h: C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp
 	C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++ -target aarch64-linux-android21 -fno-limit-debug-info -fPIC -fstack-protector-strong -DANDROID -g -std=gnu++11 -Wall -W -dM -E -o arm64-v8a\moc_predefs.h C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_registrationwind.cpp arm64-v8a\moc_work.cpp
+compiler_moc_header_make_all: arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_registrwindow.cpp arm64-v8a\moc_work.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_registrationwind.cpp arm64-v8a\moc_work.cpp
+	-$(DEL_FILE) arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_registrwindow.cpp arm64-v8a\moc_work.cpp
 arm64-v8a\moc_mainwindow.cpp: ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
 		C:\Qt\5.15.2\android\include\QtWidgets\qmainwindow.h \
@@ -255,16 +255,14 @@ arm64-v8a\moc_mainwindow.cpp: ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		..\CCPS\functions.h \
 		..\CCPS\work.h \
-		..\CCPS\registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QDialog \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		..\CCPS\registrwindow.h \
 		arm64-v8a\moc_predefs.h \
 		C:\Qt\5.15.2\android\bin\moc.exe
 	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\mainwindow.h -o arm64-v8a\moc_mainwindow.cpp
 
-arm64-v8a\moc_registrationwind.cpp: ..\CCPS\registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QDialog \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+arm64-v8a\moc_registrwindow.cpp: ..\CCPS\registrwindow.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgetsglobal.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.15.2\android\include\QtCore\qglobal.h \
@@ -367,9 +365,11 @@ arm64-v8a\moc_registrationwind.cpp: ..\CCPS\registrationwind.h \
 		C:\Qt\5.15.2\android\include\QtCore\qfiledevice.h \
 		C:\Qt\5.15.2\android\include\QtGui\qvector2d.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		arm64-v8a\moc_predefs.h \
 		C:\Qt\5.15.2\android\bin\moc.exe
-	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\registrationwind.h -o arm64-v8a\moc_registrationwind.cpp
+	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\registrwindow.h -o arm64-v8a\moc_registrwindow.cpp
 
 arm64-v8a\moc_work.cpp: ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
@@ -486,16 +486,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_registrationwind.h ui_work.h
+compiler_uic_make_all: ui_mainwindow.h ui_registrwindow.h ui_work.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_registrationwind.h ui_work.h
+	-$(DEL_FILE) ui_mainwindow.h ui_registrwindow.h ui_work.h
 ui_mainwindow.h: ..\CCPS\mainwindow.ui \
 		C:\Qt\5.15.2\android\bin\uic.exe
 	C:\Qt\5.15.2\android\bin\uic.exe ..\CCPS\mainwindow.ui -o ui_mainwindow.h
 
-ui_registrationwind.h: ..\CCPS\registrationwind.ui \
+ui_registrwindow.h: ..\CCPS\registrwindow.ui \
 		C:\Qt\5.15.2\android\bin\uic.exe
-	C:\Qt\5.15.2\android\bin\uic.exe ..\CCPS\registrationwind.ui -o ui_registrationwind.h
+	C:\Qt\5.15.2\android\bin\uic.exe ..\CCPS\registrwindow.ui -o ui_registrwindow.h
 
 ui_work.h: ..\CCPS\work.ui \
 		C:\Qt\5.15.2\android\bin\uic.exe
@@ -623,9 +623,7 @@ arm64-v8a\main.obj: ..\CCPS\main.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		..\CCPS\functions.h \
 		..\CCPS\work.h \
-		..\CCPS\registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QDialog \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QApplication \
 		C:\Qt\5.15.2\android\include\QtWidgets\qapplication.h \
 		C:\Qt\5.15.2\android\include\QtCore\qcoreapplication.h \
@@ -744,9 +742,7 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		..\CCPS\functions.h \
 		..\CCPS\work.h \
-		..\CCPS\registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QDialog \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		..\CCPS\registrwindow.h \
 		ui_mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtCore\QVariant \
 		C:\Qt\5.15.2\android\include\QtWidgets\QApplication \
@@ -788,9 +784,9 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\mainwindow.obj ..\CCPS\mainwindow.cpp
 
-arm64-v8a\registrationwind.obj: ..\CCPS\registrationwind.cpp ..\CCPS\registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QDialog \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgetsglobal.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtguiglobal.h \
 		C:\Qt\5.15.2\android\include\QtCore\qglobal.h \
@@ -893,55 +889,12 @@ arm64-v8a\registrationwind.obj: ..\CCPS\registrationwind.cpp ..\CCPS\registratio
 		C:\Qt\5.15.2\android\include\QtCore\qfiledevice.h \
 		C:\Qt\5.15.2\android\include\QtGui\qvector2d.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
-		ui_registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtCore\QVariant \
-		C:\Qt\5.15.2\android\include\QtWidgets\QApplication \
-		C:\Qt\5.15.2\android\include\QtWidgets\qapplication.h \
-		C:\Qt\5.15.2\android\include\QtCore\qcoreapplication.h \
-		C:\Qt\5.15.2\android\include\QtCore\qeventloop.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdesktopwidget.h \
-		C:\Qt\5.15.2\android\include\QtGui\qguiapplication.h \
-		C:\Qt\5.15.2\android\include\QtGui\qinputmethod.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QComboBox \
-		C:\Qt\5.15.2\android\include\QtWidgets\qcombobox.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qabstractitemdelegate.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qstyleoption.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qabstractspinbox.h \
-		C:\Qt\5.15.2\android\include\QtGui\qvalidator.h \
-		C:\Qt\5.15.2\android\include\QtCore\qregularexpression.h \
-		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qslider.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qstyle.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qtabbar.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qrubberband.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
-		C:\Qt\5.15.2\android\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QGroupBox \
-		C:\Qt\5.15.2\android\include\QtWidgets\qgroupbox.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QHBoxLayout \
-		C:\Qt\5.15.2\android\include\QtWidgets\qboxlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qgridlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QLineEdit \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlineedit.h \
-		C:\Qt\5.15.2\android\include\QtGui\qtextcursor.h \
-		C:\Qt\5.15.2\android\include\QtGui\qtextformat.h \
-		C:\Qt\5.15.2\android\include\QtGui\qpen.h \
-		C:\Qt\5.15.2\android\include\QtGui\qtextoption.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QPushButton \
-		C:\Qt\5.15.2\android\include\QtWidgets\qpushbutton.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
+		ui_registrwindow.h \
 		..\CCPS\work.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
-		C:\Qt\5.15.2\android\include\QtWidgets\qmainwindow.h \
 		..\CCPS\functions.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\registrationwind.obj ..\CCPS\registrationwind.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\registrwindow.obj ..\CCPS\registrwindow.cpp
 
 arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
@@ -1080,16 +1033,14 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\mainwindow.h \
 		..\CCPS\functions.h \
-		..\CCPS\registrationwind.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QDialog \
-		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h
+		..\CCPS\registrwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\work.obj ..\CCPS\work.cpp
 
 arm64-v8a\moc_mainwindow.obj: arm64-v8a\moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_mainwindow.obj arm64-v8a\moc_mainwindow.cpp
 
-arm64-v8a\moc_registrationwind.obj: arm64-v8a\moc_registrationwind.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_registrationwind.obj arm64-v8a\moc_registrationwind.cpp
+arm64-v8a\moc_registrwindow.obj: arm64-v8a\moc_registrwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_registrwindow.obj arm64-v8a\moc_registrwindow.cpp
 
 arm64-v8a\moc_work.obj: arm64-v8a\moc_work.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_work.obj arm64-v8a\moc_work.cpp

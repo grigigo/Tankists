@@ -12,10 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_6->setVisible(false);
 
     work = new Work;
-    registr = new registrationwind;
+    registr = new RegistrWindow;
 
     connect(work, &Work::signM, this, &MainWindow::show);
-    connect(registr, &registrationwind::signReg, this, &MainWindow::show);
+    connect(registr, &RegistrWindow::signReg, this, &MainWindow::show);
 }
 
 MainWindow::~MainWindow()
