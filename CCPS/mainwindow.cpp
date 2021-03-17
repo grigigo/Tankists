@@ -1,15 +1,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPushButton>
+#include <QPixmap>
+#include <QScreen>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ui->Autho->setVisible(false);
-    ui->label_5->setVisible(false);
-    ui->label_6->setVisible(false);
+    ui->info->setVisible(false);
+
+    QRect r = QWidget::frameGeometry();
+
+    QPixmap pix(":/images/poop.png");
+
+    /*int pix_w = ui->picture->width();
+    int pix_h = ui->picture->height();*/
+
+
+    ui->picture->setPixmap(pix.scaled(r.width(), r.width(), Qt::KeepAspectRatio));
 
     work = new Work;
     registr = new RegistrWindow;
@@ -37,7 +47,7 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
     }
     else
     {
-        ui->info->setText("Неправильный логин или пароль.Повторите авторизацию или зарегистрируйтесь.");
+        ui->info->setVisible(true);
         ui->info->setWordWrap(true); // если отрицание, никуда не переходим
     }
 }

@@ -12,5 +12,6 @@
    "android-target-sdk-version": "28",
    "qml-root-path": "C:/Users/grish/Documents/ProjectsQt/Tankists/CCPS",
    "stdcpp-path": "C:\\Users\\grish\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/",
+   "qrcFiles": "C:/Users/grish/Documents/ProjectsQt/Tankists/CCPS/resources.qrc",
    "application-binary": "CCPS"
 }

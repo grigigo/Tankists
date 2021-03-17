@@ -47,6 +47,7 @@ public:
 
         back_button = new QPushButton(centralwidget);
         back_button->setObjectName(QString::fromUtf8("back_button"));
+        back_button->setMinimumSize(QSize(0, 100));
         back_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
 "border-radius: 15%;\n"
 "color: white;\n"
