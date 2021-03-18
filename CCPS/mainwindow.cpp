@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     QScreen* screen = QApplication::screens().at(0);
     QSize size = screen->availableSize();
 
-    QString text = QString("%1").arg(size.width()) + "x" + QString("%1").arg(size.height());
+    //QString text = QString("%1").arg(size.width()) + "x" + QString("%1").arg(size.height());
 
     ui->picture->setPixmap(pix.scaled(size.width() * 0.5, size.width() * 0.5, Qt::AspectRatioMode(true)));
     ui->picture->setGeometry(size.width() * 0.25, size.height() * 0.04, size.width() * 0.5, size.width() * 0.5);
@@ -62,8 +62,10 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
     }
     else
     {
-        ui->info->setVisible(true);
         ui->info->setWordWrap(true); // если отрицание, никуда не переходим
+
+        ui->info->setVisible(true);
+        //ui->info->setText("Неправильный логин или пароль")
     }
 }
 

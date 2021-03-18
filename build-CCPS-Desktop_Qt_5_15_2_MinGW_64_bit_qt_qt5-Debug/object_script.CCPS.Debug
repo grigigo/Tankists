@@ -1,0 +1,10 @@
+debug/functions.o
+debug/functions.o
+debug/main.o
+debug/mainwindow.o
+debug/registrwindow.o
+debug/work.o
+debug/qrc_resources.o
+debug/moc_mainwindow.o
+debug/moc_registrwindow.o
+debug/moc_work.o

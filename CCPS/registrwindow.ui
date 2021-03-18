@@ -67,8 +67,8 @@ border-radius: 15%;
    <widget class="QPushButton" name="sign_up_button">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>538</y>
+      <x>10</x>
+      <y>534</y>
       <width>302</width>
       <height>100</height>
      </rect>
@@ -91,11 +91,55 @@ border-radius: 15%;
      <string>Зарегистрироваться</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="login_edit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>127</y>
+      <width>106</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>75</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password_edit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>331</y>
+      <width>106</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>75</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>457</y>
+      <x>10</x>
+      <y>453</y>
       <width>264</width>
       <height>75</height>
      </rect>
@@ -130,31 +174,12 @@ border-radius: 15%;
      </property>
     </item>
    </widget>
-   <widget class="QLineEdit" name="login_edit">
+   <widget class="QLabel" name="password_1">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>131</y>
-      <width>106</width>
-      <height>75</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>75</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="login_1">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>102</width>
+      <x>10</x>
+      <y>208</y>
+      <width>124</width>
       <height>45</height>
      </rect>
     </property>
@@ -167,7 +192,7 @@ border-radius: 15%;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -176,8 +201,8 @@ border-radius: 15%;
    <widget class="QPushButton" name="back_button">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>644</y>
+      <x>10</x>
+      <y>640</y>
       <width>93</width>
       <height>100</height>
      </rect>
@@ -200,37 +225,12 @@ border-radius: 15%;
      <string>Назад</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="password_edit">
+   <widget class="QLabel" name="login_1">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>335</y>
-      <width>106</width>
-      <height>75</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>75</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="password_1">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>212</y>
-      <width>124</width>
+      <x>10</x>
+      <y>5</y>
+      <width>102</width>
       <height>45</height>
      </rect>
     </property>
@@ -243,7 +243,7 @@ border-radius: 15%;
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>

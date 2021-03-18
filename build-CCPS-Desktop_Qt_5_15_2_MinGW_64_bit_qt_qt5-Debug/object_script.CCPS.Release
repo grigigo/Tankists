@@ -1,0 +1,10 @@
+release/functions.o
+release/functions.o
+release/main.o
+release/mainwindow.o
+release/registrwindow.o
+release/work.o
+release/qrc_resources.o
+release/moc_mainwindow.o
+release/moc_registrwindow.o
+release/moc_work.o
