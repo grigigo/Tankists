@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -25,7 +24,6 @@ class Ui_Work
 {
 public:
     QWidget *centralwidget;
-    QGridLayout *gridLayout;
     QLabel *label;
     QPushButton *back_button;
     QMenuBar *menubar;
@@ -36,34 +34,64 @@ public:
         if (Work->objectName().isEmpty())
             Work->setObjectName(QString::fromUtf8("Work"));
         Work->resize(401, 594);
-        centralwidget = new QWidget(Work);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        gridLayout = new QGridLayout(centralwidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout->addWidget(label, 0, 0, 1, 1);
-
-        back_button = new QPushButton(centralwidget);
-        back_button->setObjectName(QString::fromUtf8("back_button"));
-        back_button->setMinimumSize(QSize(0, 100));
-        back_button->setStyleSheet(QString::fromUtf8("QPushButton {background-color: #555555;\n"
+        Work->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: #333333;\n"
 "border-radius: 15%;\n"
 "color: white;\n"
-"border: 2px solid #444444;\n"
+"border: 2px solid #303030;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-" background-color: #666666\n"
+" background-color: #505050;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-" background-color: #666666\n"
-"}"));
-
-        gridLayout->addWidget(back_button, 1, 0, 1, 1);
-
+" background-color: #505050;\n"
+"}\n"
+"\n"
+"QMainWindow {\n"
+"background-color: #191919;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"background-color: #282828;\n"
+"color: white;\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"color: white;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"background-color: #333333;\n"
+"border-radius: 15%;\n"
+"color: white;\n"
+"border: 2px solid #303030;\n"
+"}\n"
+"\n"
+"QComboBox:hover {\n"
+" background-color: #505050;\n"
+"}\n"
+"\n"
+"QComboBox:pressed {\n"
+" background-color: #505050;\n"
+"}\n"
+"\n"
+"QComboBox:drop-down {\n"
+"border: 1px solid #303030;\n"
+"border-radius: 15%;\n"
+" }"));
+        centralwidget = new QWidget(Work);
+        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(9, 9, 254, 82));
+        back_button = new QPushButton(centralwidget);
+        back_button->setObjectName(QString::fromUtf8("back_button"));
+        back_button->setGeometry(QRect(9, 443, 35, 100));
+        back_button->setMinimumSize(QSize(0, 100));
+        back_button->setStyleSheet(QString::fromUtf8(""));
         Work->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Work);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -81,7 +109,7 @@ public:
     void retranslateUi(QMainWindow *Work)
     {
         Work->setWindowTitle(QCoreApplication::translate("Work", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("Work", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt;\">\320\227\320\264\320\265\321\201\321\214 \321\207\321\202\320\276-\321\202\320\276 \320\261\321\203\320\264\320\265\321\202</span></p><p align=\"center\"><span style=\" font-size:22pt;\">(working field)</span></p></body></html>", nullptr));
+        label->setText(QCoreApplication::translate("Work", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">\320\227\320\264\320\265\321\201\321\214 \321\207\321\202\320\276-\321\202\320\276 \320\261\321\203\320\264\320\265\321\202</span></p><p align=\"center\"><span style=\" font-size:36pt;\">(working field)</span></p></body></html>", nullptr));
         back_button->setText(QCoreApplication::translate("Work", "\320\235\320\260\320\267\320\260\320\264", nullptr));
     } // retranslateUi
 

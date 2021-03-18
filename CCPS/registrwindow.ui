@@ -7,388 +7,248 @@
     <x>0</x>
     <y>0</y>
     <width>629</width>
-    <height>793</height>
+    <height>795</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #191919;</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="font">
-           <font>
-            <pointsize>40</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: white;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="login_">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>75</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit {
-background-color: #232323;
-color: white;
-border: 0px;
-}</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="font">
-           <font>
-            <pointsize>40</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: white;</string>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="password_">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>75</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit {
-background-color: #232323;
-color: white;
-border: 0px;
-}</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_4">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QComboBox" name="comboBox">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>75</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>24</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QComboBox {background-color: #555555;
+   <string notr="true">QPushButton {
+background-color: #333333;
 border-radius: 15%;
 color: white;
-border: 2px solid #444444;
-text-align: center;
+border: 2px solid #303030;
+}
+
+QPushButton:hover {
+ background-color: #505050;
+}
+
+QPushButton:pressed {
+ background-color: #505050;
+}
+
+QMainWindow {
+background-color: #191919;
+}
+
+QLineEdit {
+background-color: #282828;
+color: white;
+border: 0px;
+}
+
+QLabel {
+color: white;
+}
+
+QComboBox {
+background-color: #333333;
+border-radius: 15%;
+color: white;
+border: 2px solid #303030;
 }
 
 QComboBox:hover {
- background-color: #666666
+ background-color: #505050;
 }
 
 QComboBox:pressed {
- background-color: #666666
-}</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Отдел продаж</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Отдел кадров</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Отдел продукта</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <spacer name="verticalSpacer_8">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <spacer name="verticalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="sign_up_button">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>24</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-background-color: #555555;
+ background-color: #505050;
+}
+
+QComboBox:drop-down {
+border: 1px solid #303030;
 border-radius: 15%;
-color: white;
-border: 2px solid #444444;
-}
-
-QPushButton:hover {
- background-color: #666666
-}
-
-QPushButton:pressed {
- background-color: #666666
-}</string>
-          </property>
-          <property name="text">
-           <string>Зарегистрироваться</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_4">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="back_button">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>24</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {background-color: #555555;
-border-radius: 15%;
-color: white;
-border: 2px solid #444444;
-}
-
-QPushButton:hover {
- background-color: #666666
-}
-
-QPushButton:pressed {
- background-color: #666666
-}</string>
-          </property>
-          <property name="text">
-           <string>Назад</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
+ }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="sign_up_button">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>538</y>
+      <width>302</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Зарегистрироваться</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>457</y>
+      <width>264</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>75</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <item>
+     <property name="text">
+      <string>Отдел продаж</string>
+     </property>
     </item>
-   </layout>
+    <item>
+     <property name="text">
+      <string>Отдел кадров</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Отдел продукта</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="login_edit">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>131</y>
+      <width>106</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>75</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="login_1">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>102</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>32</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back_button">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>644</y>
+      <width>93</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password_edit">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>335</y>
+      <width>106</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>75</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="password_1">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>212</y>
+      <width>124</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>32</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

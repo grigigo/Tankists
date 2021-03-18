@@ -143,6 +143,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) arm64-v8a\qrc_resources.cpp
 arm64-v8a\qrc_resources.cpp: ..\CCPS\resources.qrc \
 		C:\Qt\5.15.2\android\bin\rcc.exe \
+		..\CCPS\CCPS-3.png \
 		..\CCPS\poop.png
 	C:\Qt\5.15.2\android\bin\rcc.exe -name resources ..\CCPS\resources.qrc -o arm64-v8a\qrc_resources.cpp
 
@@ -761,11 +762,6 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qguiapplication.h \
 		C:\Qt\5.15.2\android\include\QtGui\qinputmethod.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QGridLayout \
-		C:\Qt\5.15.2\android\include\QtWidgets\qgridlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
@@ -783,10 +779,8 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QPushButton \
 		C:\Qt\5.15.2\android\include\QtWidgets\qpushbutton.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QSpacerItem \
 		C:\Qt\5.15.2\android\include\QtWidgets\QStatusBar \
 		C:\Qt\5.15.2\android\include\QtWidgets\qstatusbar.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QVBoxLayout \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		C:\Qt\5.15.2\android\include\QtGui\QPixmap \
 		C:\Qt\5.15.2\android\include\QtGui\QScreen \
@@ -796,7 +790,8 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtCore\QRect \
 		C:\Qt\5.15.2\android\include\QtCore\QSize \
 		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
-		C:\Qt\5.15.2\android\include\QtGui\QTransform
+		C:\Qt\5.15.2\android\include\QtGui\QTransform \
+		C:\Qt\5.15.2\android\include\QtGui\QScreenOrientationChangeEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\mainwindow.obj ..\CCPS\mainwindow.cpp
 
 arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
@@ -929,11 +924,6 @@ arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qrubberband.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
 		C:\Qt\5.15.2\android\include\QtCore\qabstractitemmodel.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QGridLayout \
-		C:\Qt\5.15.2\android\include\QtWidgets\qgridlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QLineEdit \
@@ -950,13 +940,19 @@ arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QPushButton \
 		C:\Qt\5.15.2\android\include\QtWidgets\qpushbutton.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QSpacerItem \
 		C:\Qt\5.15.2\android\include\QtWidgets\QStatusBar \
 		C:\Qt\5.15.2\android\include\QtWidgets\qstatusbar.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QVBoxLayout \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\work.h \
-		..\CCPS\functions.h
+		..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtGui\QScreen \
+		C:\Qt\5.15.2\android\include\QtGui\qscreen.h \
+		C:\Qt\5.15.2\android\include\QtCore\QList \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtCore\QRect \
+		C:\Qt\5.15.2\android\include\QtCore\QSize \
+		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
+		C:\Qt\5.15.2\android\include\QtGui\QTransform
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\registrwindow.obj ..\CCPS\registrwindow.cpp
 
 arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
@@ -1075,11 +1071,6 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qguiapplication.h \
 		C:\Qt\5.15.2\android\include\QtGui\qinputmethod.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QGridLayout \
-		C:\Qt\5.15.2\android\include\QtWidgets\qgridlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayout.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\qboxlayout.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
 		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
@@ -1096,7 +1087,15 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\mainwindow.h \
 		..\CCPS\functions.h \
-		..\CCPS\registrwindow.h
+		..\CCPS\registrwindow.h \
+		C:\Qt\5.15.2\android\include\QtGui\QScreen \
+		C:\Qt\5.15.2\android\include\QtGui\qscreen.h \
+		C:\Qt\5.15.2\android\include\QtCore\QList \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtCore\QRect \
+		C:\Qt\5.15.2\android\include\QtCore\QSize \
+		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
+		C:\Qt\5.15.2\android\include\QtGui\QTransform
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\work.obj ..\CCPS\work.cpp
 
 arm64-v8a\qrc_resources.obj: arm64-v8a\qrc_resources.cpp 

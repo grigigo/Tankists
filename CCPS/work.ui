@@ -13,44 +13,92 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt;&quot;&gt;Здесь что-то будет&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt;&quot;&gt;(working field)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="back_button">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {background-color: #555555;
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+background-color: #333333;
 border-radius: 15%;
 color: white;
-border: 2px solid #444444;
+border: 2px solid #303030;
 }
 
 QPushButton:hover {
- background-color: #666666
+ background-color: #505050;
 }
 
 QPushButton:pressed {
- background-color: #666666
-}</string>
-      </property>
-      <property name="text">
-       <string>Назад</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+ background-color: #505050;
+}
+
+QMainWindow {
+background-color: #191919;
+}
+
+QLineEdit {
+background-color: #282828;
+color: white;
+border: 0px;
+}
+
+QLabel {
+color: white;
+}
+
+QComboBox {
+background-color: #333333;
+border-radius: 15%;
+color: white;
+border: 2px solid #303030;
+}
+
+QComboBox:hover {
+ background-color: #505050;
+}
+
+QComboBox:pressed {
+ background-color: #505050;
+}
+
+QComboBox:drop-down {
+border: 1px solid #303030;
+border-radius: 15%;
+ }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>254</width>
+      <height>82</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Здесь что-то будет&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;(working field)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="back_button">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>443</y>
+      <width>35</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

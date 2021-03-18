@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/images">
         <file>poop.png</file>
+        <file>CCPS-3.png</file>
     </qresource>
 </RCC>

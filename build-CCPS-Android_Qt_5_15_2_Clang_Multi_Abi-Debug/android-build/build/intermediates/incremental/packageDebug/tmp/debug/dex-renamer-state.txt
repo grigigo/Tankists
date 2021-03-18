@@ -1,4 +1,4 @@
-#Wed Mar 17 23:12:41 MSK 2021
+#Thu Mar 18 18:22:09 MSK 2021
 base.1=C\:\\Users\\grish\\Documents\\ProjectsQt\\Tankists\\build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug\\android-build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
 path.1=classes.dex
 base.0=C\:\\Users\\grish\\Documents\\ProjectsQt\\Tankists\\build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug\\android-build\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex

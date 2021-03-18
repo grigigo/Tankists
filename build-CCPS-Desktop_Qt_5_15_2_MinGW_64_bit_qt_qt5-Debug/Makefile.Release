@@ -120,6 +120,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_resources.cpp
 release/qrc_resources.cpp: ../CCPS/resources.qrc \
 		C:/Qt/5.15.2/mingw81_64/bin/rcc.exe \
+		../CCPS/CCPS-3.png \
 		../CCPS/poop.png
 	C:\Qt\5.15.2\mingw81_64\bin\rcc.exe -name resources ..\CCPS\resources.qrc -o release\qrc_resources.cpp
 
@@ -767,7 +768,15 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPixmap
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPixmap \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\CCPS\mainwindow.cpp
 
 release/registrwindow.o: ../CCPS/registrwindow.cpp ../CCPS/registrwindow.h \
