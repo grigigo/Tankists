@@ -32,8 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->info->setGeometry(size.width() * 0.15, size.height() * 0.3, size.width() * 0.7, size.height() * 0.15);
 
-    ui->pushButton->setGeometry(size.width() * 0.1, size.height() * 0.8, size.width() * 0.8, size.height() * 0.07);
-    ui->pushButton_2->setGeometry(size.width() * 0.1, size.height() * 0.9, size.width() * 0.8, size.height() * 0.07);
+    ui->pushButton->setGeometry(size.width() * 0.1, size.height() * 0.78, size.width() * 0.8, size.height() * 0.07);
+    ui->pushButton_2->setGeometry(size.width() * 0.1, size.height() * 0.88, size.width() * 0.8, size.height() * 0.07);
 
     ui->label_2->setGeometry(size.width() * 0.15, size.height() * 0.5, size.width() * 0.7, size.height() * 0.05);
     //ui->password->setText(text);
