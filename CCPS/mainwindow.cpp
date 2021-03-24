@@ -27,8 +27,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //QString text = QString("%1").arg(size.width()) + "x" + QString("%1").arg(size.height());
 
-    ui->picture->setPixmap(pix.scaled(size.width() * 0.5, size.width() * 0.5, Qt::AspectRatioMode(true)));
-    ui->picture->setGeometry(size.width() * 0.25, size.height() * 0.04, size.width() * 0.5, size.width() * 0.5);
+   ui->picture->setPixmap(pix.scaled(size.width() * 0.5, size.width() * 0.5, Qt::AspectRatioMode(true)));
+   ui->picture->setGeometry(size.width() * 0.25, size.height() * 0.04, size.width() * 0.5, size.width() * 0.5);
 
     ui->info->setGeometry(size.width() * 0.15, size.height() * 0.3, size.width() * 0.7, size.height() * 0.15);
 
@@ -55,10 +55,10 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
     QString login = ui->login->text();
     QString password = ui->password->text();
 
-    if (authorize(login.toStdString(),password.toStdString()))// Проверка логина и пароля
+    if (authorize(login, password))// Проверка логина и пароля
     {
-        work->show();
         this->close();
+        work->show();
     }
     else
     {

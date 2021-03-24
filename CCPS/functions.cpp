@@ -1,11 +1,17 @@
 #include "functions.h"
 
-bool authorize(std::string login, std::string password)
+
+
+bool authorize(QString login, QString password)
 {
-    return ((login=="Tim" and password=="12345") or (login=="Gri" and password=="676767"));
+    MyTcpClient *clientAuth = new MyTcpClient(nullptr);
+    QString message = "auth&" + login + "&" + password;
+    clientAuth->slot_send_to_server(message);
+
+    return true;
 }
 
-bool registration(std::string login, std::string password)
+bool registration(QString login, QString password)
 {
 return (login.size()>3 and password.size()>3);
 }
