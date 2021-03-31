@@ -172,6 +172,9 @@ color: white;
     </property>
    </widget>
    <widget class="QLabel" name="picture">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>110</x>

@@ -38,10 +38,12 @@ void RegistrWindow::on_back_button_clicked()
 
 void RegistrWindow::on_sign_up_button_clicked()
 {
+    Functions *user = new Functions();
+
     QString login = ui->login_edit->text();
     QString password = ui->password_edit->text();
 
-    if (registration(login, password))// Отправка логина и пароля
+    if (user->registration(login, password))// Отправка логина и пароля
     {
         this->on_back_button_clicked();
     }

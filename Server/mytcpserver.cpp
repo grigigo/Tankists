@@ -41,21 +41,29 @@ void MyTcpServer::slotServerRead(){
     while(clientSocket->bytesAvailable()>0)
     {
         QByteArray array = clientSocket->readAll();
-        std::string log="";
-        std::string pass="";
+        std::string code="";
         std::string message;
-        message=array.toStdString();
+        message = array.toStdString();
         qDebug()<<QString::fromStdString(message);
         //
-        int pos =message.find("&");
+        int pos = message.find("&");
+        code = message.substr(0,pos);
         message.erase(0,pos+1);
 
-        pos=message.find("&");
-        log=message.substr(0,pos);
-        message.erase(0,pos+1);
+        if (code=="message")
+        {
+        push_to_file(message);
+        }
+        else if (code=="auth")
+        {
 
-        pos = message.find("&");
+        }
+        else if (code=="reg")
+        {
+
+        }
     }
+
 }
 
 void MyTcpServer::slotClientDisconnected(){
@@ -64,5 +72,5 @@ void MyTcpServer::slotClientDisconnected(){
     clientSocket->close();
     SClients.remove(id);
     server_status--;
-    qDebug()<<QString::fromUtf8("Client is disconnected \n");
+    qDebug()<<QString::fromUtf8("Client is disconnected /n");
 }

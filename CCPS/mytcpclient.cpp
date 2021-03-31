@@ -14,9 +14,9 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 }*/
 
 void MyTcpClient::slot_connected() {
-    QMessageBox Msg;
-    Msg.setText("Connected!!!");
-    Msg.exec();
+    //QMessageBox Msg;
+    //Msg.setText("Connected!!!");
+    //Msg.exec();
 }
 
 void MyTcpClient::slot_readyRead() {

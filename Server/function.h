@@ -2,10 +2,15 @@
 #define FUNCTION_H
 
 #include <QString>
+#include <fstream>
+#include <QDebug>
 
-bool authorize(QString login, QString password);//авторизация
+bool authorize(std::string message);//авторизация
 
-bool registration(QString login, QString password);//регистрация
+bool registration(std::string message);//регистрация
 
+void send_message(std::string message); // отправка сообщения клиенту
+
+void push_to_file(std::string message); // получение сообщения
 
 #endif // FUNCTION_H

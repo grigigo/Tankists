@@ -5,17 +5,20 @@
 #include "mytcpclient.h"
 
 class Functions {
+private:
+    MyTcpClient *clientAuth;
+
 public:
     Functions();
     ~Functions();
 
-    /*bool authorize(QString login, QString password);//авторизация
+    bool authorize(QString login, QString password);//авторизация
 
     bool registration(QString login, QString password);//регистрация*/
+
+    //bool send_message(QString message);//Отправка сообщения
 };
 
-bool authorize(QString login, QString password);//авторизация
-
-bool registration(QString login, QString password);//регистрация
+bool send_message(QString message);//Отправка сообщения
 
 #endif // FUNCTIONS_H
