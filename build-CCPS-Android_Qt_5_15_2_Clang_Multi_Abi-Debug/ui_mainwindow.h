@@ -108,6 +108,7 @@ public:
         pushButton->setStyleSheet(QString::fromUtf8(""));
         picture = new QLabel(centralwidget);
         picture->setObjectName(QString::fromUtf8("picture"));
+        picture->setEnabled(true);
         picture->setGeometry(QRect(110, 30, 371, 291));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);

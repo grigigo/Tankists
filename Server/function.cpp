@@ -1,19 +1,30 @@
 #include "function.h"
 
 
-bool authorize(std::string message)
+void authorize(std::string message, QTcpSocket *clientSocket)
 {
     int pos = message.find("&");
     std::string login = message.substr(0, pos);
     message.erase(0, pos + 1);
+    QString mylogin = QString::fromStdString(login); // QString::fromStdString(message);
+    qDebug() << mylogin;
 
-    pos = message.find("&");
     std::string password = message;
+    qDebug() << QString::fromUtf8(password.c_str());
+    qDebug() << clientSocket;
 
-    return ((login=="Tim" and password=="12345") or (login=="Gri" and password=="676767") or (login=="Oleg" and password=="lox"));
+    if ((login == "Tim" && password == "12345") || (login == "Gri" && password == "676767") || (login == "Oleg" && password == "lox"))
+    {
+        QByteArray array;
+        array.append(mylogin.toUtf8());
+        qDebug() << array;
+        clientSocket->write(array);
+    }
+    else
+        clientSocket->write("NOPE");
 }
 
-bool registration(std::string message)
+void registration(std::string message)
 {
     int pos = message.find("&");
     std::string login = message.substr(0, pos);
@@ -23,10 +34,9 @@ bool registration(std::string message)
     std::string password = message.substr(0, pos);
     message.erase(0, pos + 1);
 
-    pos = message.find("&");
     std::string department = message;
 
-    return (login.size()>3 and password.size()>3);
+    //return (login.size() > 3 and password.size() > 3);
 }
 
 void send_message(std::string chatName)

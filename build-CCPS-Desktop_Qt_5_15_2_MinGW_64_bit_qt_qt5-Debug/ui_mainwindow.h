@@ -96,7 +96,9 @@ public:
         info = new QLabel(centralwidget);
         info->setObjectName(QString::fromUtf8("info"));
         info->setGeometry(QRect(9, 123, 491, 39));
-        info->setFont(font);
+        QFont font1;
+        font1.setPointSize(16);
+        info->setFont(font1);
         info->setAlignment(Qt::AlignCenter);
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -106,6 +108,7 @@ public:
         pushButton->setStyleSheet(QString::fromUtf8(""));
         picture = new QLabel(centralwidget);
         picture->setObjectName(QString::fromUtf8("picture"));
+        picture->setEnabled(true);
         picture->setGeometry(QRect(110, 30, 371, 291));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);

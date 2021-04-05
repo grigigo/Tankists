@@ -9,8 +9,8 @@ MyTcpServer::~MyTcpServer()
         SClients[i]->close();
         SClients.remove(i);
     }
-    server_status=0;
-   mTcpServer->close();
+    server_status = 0;
+    mTcpServer->close();
 }
 MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     mTcpServer = new QTcpServer(this);
@@ -26,9 +26,9 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
 
 void MyTcpServer::slotNewConnection(){
     if(server_status==1){
-        QTcpSocket* clientSocket=mTcpServer->nextPendingConnection();
-        int idusersocs=(int)clientSocket->socketDescriptor();
-        SClients[idusersocs]=clientSocket;
+        QTcpSocket* clientSocket = mTcpServer->nextPendingConnection();
+        int idusersocs = (int)clientSocket->socketDescriptor();
+        SClients[idusersocs] = clientSocket;
            SClients[idusersocs]->write("Hello!\n");
            connect(SClients[idusersocs],&QTcpSocket::readyRead,this,&MyTcpServer::slotServerRead);
            connect(SClients[idusersocs],&QTcpSocket::disconnected,this,&MyTcpServer::slotClientDisconnected);
@@ -36,7 +36,7 @@ void MyTcpServer::slotNewConnection(){
 }
 
 void MyTcpServer::slotServerRead(){
-    QTcpSocket *clientSocket= (QTcpSocket*)sender();
+    QTcpSocket *clientSocket = (QTcpSocket*)sender();
     int id =(int)clientSocket->socketDescriptor();
     while(clientSocket->bytesAvailable()>0)
     {
@@ -44,7 +44,8 @@ void MyTcpServer::slotServerRead(){
         std::string code="";
         std::string message;
         message = array.toStdString();
-        qDebug()<<QString::fromStdString(message);
+        qDebug() << QString::fromStdString(message);
+        qDebug() << clientSocket;
         //
         int pos = message.find("&");
         code = message.substr(0,pos);
@@ -52,11 +53,11 @@ void MyTcpServer::slotServerRead(){
 
         if (code=="message")
         {
-        push_to_file(message);
+        //push_to_file(message);
         }
         else if (code=="auth")
         {
-
+            authorize(message, clientSocket);
         }
         else if (code=="reg")
         {

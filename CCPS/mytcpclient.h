@@ -20,7 +20,7 @@ private:
 
 public slots:
     void slot_connected();
-    void slot_readyRead();//
+    QString slot_readyRead();//
     void slot_send_to_server(QString message); // отправляем msg=login+pass на сервер
     void slot_disconnected();
 };

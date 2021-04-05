@@ -13,10 +13,10 @@ EQ            = =
 
 CC            = C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang
 CXX           = C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -target aarch64-linux-android21 -fno-limit-debug-info -fPIC -fstack-protector-strong -DANDROID -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -target aarch64-linux-android21 -fno-limit-debug-info -fPIC -fstack-protector-strong -DANDROID -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I..\CCPS -I. -IC:\Qt\5.15.2\android\include -IC:\Qt\5.15.2\android\include\QtWidgets -IC:\Qt\5.15.2\android\include\QtGui -IC:\Qt\5.15.2\android\include\QtCore -Iarm64-v8a -I. -IC:\Qt\5.15.2\android\mkspecs\android-clang
+INCPATH       = -I..\CCPS -I. -IC:\Qt\5.15.2\android\include -IC:\Qt\5.15.2\android\include\QtWidgets -IC:\Qt\5.15.2\android\include\QtGui -IC:\Qt\5.15.2\android\include\QtNetwork -IC:\Qt\5.15.2\android\include\QtCore -Iarm64-v8a -I. -IC:\Qt\5.15.2\android\mkspecs\android-clang
 QMAKE         = C:\Qt\5.15.2\android\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -39,7 +39,7 @@ DISTNAME      = libCCPS_arm64-v8a.so1.0.0
 DISTDIR = C:\Users\grish\Documents\ProjectsQt\Tankists\build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug\arm64-v8a\libCCPS_arm64-v8a.so1.0.0
 LINK          = C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++ -target aarch64-linux-android21 -fno-limit-debug-info
 LFLAGS        = -Wl,-soname,libCCPS_arm64-v8a.so -Wl,--build-id=sha1 -Wl,--no-undefined -Wl,-z,noexecstack -shared
-LIBS          = $(SUBLIBS) C:/Qt/5.15.2/android/lib/libQt5Widgets_arm64-v8a.so C:/Qt/5.15.2/android/lib/libQt5Gui_arm64-v8a.so C:/Qt/5.15.2/android/lib/libQt5Core_arm64-v8a.so -lGLESv2   -llog -lz -lm -ldl -lc
+LIBS          = $(SUBLIBS) C:/Qt/5.15.2/android/lib/libQt5Widgets_arm64-v8a.so C:/Qt/5.15.2/android/lib/libQt5Gui_arm64-v8a.so C:/Qt/5.15.2/android/lib/libQt5Network_arm64-v8a.so C:/Qt/5.15.2/android/lib/libQt5Core_arm64-v8a.so -lGLESv2   -llog -lz -lm -ldl -lc
 AR            = C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-ar cqs
 RANLIB        = C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android-ranlib
 SED           = $(QMAKE) -install sed
@@ -54,26 +54,32 @@ OBJECTS_DIR   = arm64-v8a\\
 SOURCES       = ..\CCPS\functions.cpp \
 		..\CCPS\main.cpp \
 		..\CCPS\mainwindow.cpp \
+		..\CCPS\mytcpclient.cpp \
 		..\CCPS\registrwindow.cpp \
 		..\CCPS\work.cpp arm64-v8a\qrc_resources.cpp \
 		arm64-v8a\moc_mainwindow.cpp \
+		arm64-v8a\moc_mytcpclient.cpp \
 		arm64-v8a\moc_registrwindow.cpp \
 		arm64-v8a\moc_work.cpp
 OBJECTS       = arm64-v8a\functions.obj \
 		arm64-v8a\main.obj \
 		arm64-v8a\mainwindow.obj \
+		arm64-v8a\mytcpclient.obj \
 		arm64-v8a\registrwindow.obj \
 		arm64-v8a\work.obj \
 		arm64-v8a\qrc_resources.obj \
 		arm64-v8a\moc_mainwindow.obj \
+		arm64-v8a\moc_mytcpclient.obj \
 		arm64-v8a\moc_registrwindow.obj \
 		arm64-v8a\moc_work.obj
 DIST          =  ..\CCPS\functions.h \
 		..\CCPS\mainwindow.h \
+		..\CCPS\mytcpclient.h \
 		..\CCPS\registrwindow.h \
 		..\CCPS\work.h ..\CCPS\functions.cpp \
 		..\CCPS\main.cpp \
 		..\CCPS\mainwindow.cpp \
+		..\CCPS\mytcpclient.cpp \
 		..\CCPS\registrwindow.cpp \
 		..\CCPS\work.cpp
 QMAKE_TARGET  = libCCPS_arm64-v8a.so
@@ -85,7 +91,7 @@ first: all
 ####### Build rules
 
 libCCPS_arm64-v8a.so: ui_mainwindow.h ui_registrwindow.h ui_work.h $(OBJECTS)  
-	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
+	$(LINK) $(LFLAGS) -o $(TARGET) @arm64-v8a\object_script..Arm64-v8a $(OBJCOMP) $(LIBS)
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\CCPS\CCPS.pro -spec android-clang "CONFIG+=debug" "CONFIG+=qml_debug" "ANDROID_ABIS=arm64-v8a"
@@ -103,8 +109,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)\
 	$(COPY_FILE) --parents ..\CCPS\resources.qrc $(DISTDIR)\
 	$(COPY_FILE) --parents C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp $(DISTDIR)\
-	$(COPY_FILE) --parents ..\CCPS\functions.h ..\CCPS\mainwindow.h ..\CCPS\registrwindow.h ..\CCPS\work.h $(DISTDIR)\
-	$(COPY_FILE) --parents ..\CCPS\functions.cpp ..\CCPS\main.cpp ..\CCPS\mainwindow.cpp ..\CCPS\registrwindow.cpp ..\CCPS\work.cpp $(DISTDIR)\
+	$(COPY_FILE) --parents ..\CCPS\functions.h ..\CCPS\mainwindow.h ..\CCPS\mytcpclient.h ..\CCPS\registrwindow.h ..\CCPS\work.h $(DISTDIR)\
+	$(COPY_FILE) --parents ..\CCPS\functions.cpp ..\CCPS\main.cpp ..\CCPS\mainwindow.cpp ..\CCPS\mytcpclient.cpp ..\CCPS\registrwindow.cpp ..\CCPS\work.cpp $(DISTDIR)\
 	$(COPY_FILE) --parents ..\CCPS\mainwindow.ui ..\CCPS\registrwindow.ui ..\CCPS\work.ui $(DISTDIR)\
 
 
@@ -153,9 +159,9 @@ compiler_moc_predefs_clean:
 arm64-v8a\moc_predefs.h: C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp
 	C:\Users\grish\AppData\Local\Android\Sdk\ndk\21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++ -target aarch64-linux-android21 -fno-limit-debug-info -fPIC -fstack-protector-strong -DANDROID -g -std=gnu++11 -Wall -W -dM -E -o arm64-v8a\moc_predefs.h C:\Qt\5.15.2\android\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_registrwindow.cpp arm64-v8a\moc_work.cpp
+compiler_moc_header_make_all: arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_mytcpclient.cpp arm64-v8a\moc_registrwindow.cpp arm64-v8a\moc_work.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_registrwindow.cpp arm64-v8a\moc_work.cpp
+	-$(DEL_FILE) arm64-v8a\moc_mainwindow.cpp arm64-v8a\moc_mytcpclient.cpp arm64-v8a\moc_registrwindow.cpp arm64-v8a\moc_work.cpp
 arm64-v8a\moc_mainwindow.cpp: ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
 		C:\Qt\5.15.2\android\include\QtWidgets\qmainwindow.h \
@@ -264,11 +270,143 @@ arm64-v8a\moc_mainwindow.cpp: ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtCore\QString \
+		..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray \
 		..\CCPS\work.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QScrollBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qscrollbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
 		..\CCPS\registrwindow.h \
 		arm64-v8a\moc_predefs.h \
 		C:\Qt\5.15.2\android\bin\moc.exe
-	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\mainwindow.h -o arm64-v8a\moc_mainwindow.cpp
+	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtNetwork -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\mainwindow.h -o arm64-v8a\moc_mainwindow.cpp
+
+arm64-v8a\moc_mytcpclient.cpp: ..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtCore\qobject.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.15.2\android\include\QtCore\qnamespace.h \
+		C:\Qt\5.15.2\android\include\QtCore\qglobal.h \
+		C:\Qt\5.15.2\android\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.15.2\android\include\QtCore\qconfig.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtcore-config.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsysinfo.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlogging.h \
+		C:\Qt\5.15.2\android\include\QtCore\qflags.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.15.2\android\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.15.2\android\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmutex.h \
+		C:\Qt\5.15.2\android\include\QtCore\qnumeric.h \
+		C:\Qt\5.15.2\android\include\QtCore\qversiontagging.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstring.h \
+		C:\Qt\5.15.2\android\include\QtCore\qchar.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbytearray.h \
+		C:\Qt\5.15.2\android\include\QtCore\qrefcount.h \
+		C:\Qt\5.15.2\android\include\QtCore\qarraydata.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringliteral.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringalgorithms.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringview.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qalgorithms.h \
+		C:\Qt\5.15.2\android\include\QtCore\qiterator.h \
+		C:\Qt\5.15.2\android\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.15.2\android\include\QtCore\qpair.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvector.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qpoint.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringlist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qregexp.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcoreevent.h \
+		C:\Qt\5.15.2\android\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmetatype.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobject_impl.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtCore\qiodevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\qdebug.h \
+		C:\Qt\5.15.2\android\include\QtCore\qhash.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmap.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtextstream.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlocale.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.15.2\android\include\QtCore\qshareddata.h \
+		C:\Qt\5.15.2\android\include\QtCore\qset.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtgui-config.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qwidget.h \
+		C:\Qt\5.15.2\android\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.15.2\android\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmargins.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\qrect.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsize.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpalette.h \
+		C:\Qt\5.15.2\android\include\QtGui\qcolor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qrgb.h \
+		C:\Qt\5.15.2\android\include\QtGui\qrgba64.h \
+		C:\Qt\5.15.2\android\include\QtGui\qbrush.h \
+		C:\Qt\5.15.2\android\include\QtGui\qmatrix.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpolygon.h \
+		C:\Qt\5.15.2\android\include\QtGui\qregion.h \
+		C:\Qt\5.15.2\android\include\QtCore\qdatastream.h \
+		C:\Qt\5.15.2\android\include\QtCore\qline.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtransform.h \
+		C:\Qt\5.15.2\android\include\QtGui\qimage.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpixelformat.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpixmap.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfont.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfontmetrics.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfontinfo.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\5.15.2\android\include\QtGui\qcursor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qkeysequence.h \
+		C:\Qt\5.15.2\android\include\QtGui\qevent.h \
+		C:\Qt\5.15.2\android\include\QtCore\qurl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qurlquery.h \
+		C:\Qt\5.15.2\android\include\QtCore\qfile.h \
+		C:\Qt\5.15.2\android\include\QtCore\qfiledevice.h \
+		C:\Qt\5.15.2\android\include\QtGui\qvector2d.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray \
+		arm64-v8a\moc_predefs.h \
+		C:\Qt\5.15.2\android\bin\moc.exe
+	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtNetwork -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\mytcpclient.h -o arm64-v8a\moc_mytcpclient.cpp
 
 arm64-v8a\moc_registrwindow.cpp: ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
@@ -379,7 +517,7 @@ arm64-v8a\moc_registrwindow.cpp: ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		arm64-v8a\moc_predefs.h \
 		C:\Qt\5.15.2\android\bin\moc.exe
-	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\registrwindow.h -o arm64-v8a\moc_registrwindow.cpp
+	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtNetwork -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\registrwindow.h -o arm64-v8a\moc_registrwindow.cpp
 
 arm64-v8a\moc_work.cpp: ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
@@ -488,9 +626,12 @@ arm64-v8a\moc_work.cpp: ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QScrollBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qscrollbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
 		arm64-v8a\moc_predefs.h \
 		C:\Qt\5.15.2\android\bin\moc.exe
-	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\work.h -o arm64-v8a\moc_work.cpp
+	C:\Qt\5.15.2\android\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug/arm64-v8a/moc_predefs.h -IC:/Qt/5.15.2/android/mkspecs/android-clang -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/android/include -IC:/Qt/5.15.2/android/include/QtWidgets -IC:/Qt/5.15.2/android/include/QtGui -IC:/Qt/5.15.2/android/include/QtNetwork -IC:/Qt/5.15.2/android/include/QtCore -I. -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++ -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -IC:/MINGW/lib/gcc/mingw32/9.2.0/include/c++/backward -IC:/Users/grish/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/lib64/clang/9.0.8/include -IC:/MINGW/include ..\CCPS\work.h -o arm64-v8a\moc_work.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -521,7 +662,121 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-arm64-v8a\functions.obj: ..\CCPS\functions.cpp ..\CCPS\functions.h
+arm64-v8a\functions.obj: ..\CCPS\functions.cpp ..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtCore\QString \
+		C:\Qt\5.15.2\android\include\QtCore\qstring.h \
+		C:\Qt\5.15.2\android\include\QtCore\qchar.h \
+		C:\Qt\5.15.2\android\include\QtCore\qglobal.h \
+		C:\Qt\5.15.2\android\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.15.2\android\include\QtCore\qconfig.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtcore-config.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsysinfo.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlogging.h \
+		C:\Qt\5.15.2\android\include\QtCore\qflags.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.15.2\android\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.15.2\android\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmutex.h \
+		C:\Qt\5.15.2\android\include\QtCore\qnumeric.h \
+		C:\Qt\5.15.2\android\include\QtCore\qversiontagging.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbytearray.h \
+		C:\Qt\5.15.2\android\include\QtCore\qrefcount.h \
+		C:\Qt\5.15.2\android\include\QtCore\qnamespace.h \
+		C:\Qt\5.15.2\android\include\QtCore\qarraydata.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringliteral.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringalgorithms.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringview.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringbuilder.h \
+		..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtCore\qobject.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qalgorithms.h \
+		C:\Qt\5.15.2\android\include\QtCore\qiterator.h \
+		C:\Qt\5.15.2\android\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.15.2\android\include\QtCore\qpair.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvector.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qpoint.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringlist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qregexp.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcoreevent.h \
+		C:\Qt\5.15.2\android\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmetatype.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobject_impl.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtCore\qiodevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\qdebug.h \
+		C:\Qt\5.15.2\android\include\QtCore\qhash.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmap.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtextstream.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlocale.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.15.2\android\include\QtCore\qshareddata.h \
+		C:\Qt\5.15.2\android\include\QtCore\qset.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtgui-config.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qwidget.h \
+		C:\Qt\5.15.2\android\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.15.2\android\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmargins.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\qrect.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsize.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpalette.h \
+		C:\Qt\5.15.2\android\include\QtGui\qcolor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qrgb.h \
+		C:\Qt\5.15.2\android\include\QtGui\qrgba64.h \
+		C:\Qt\5.15.2\android\include\QtGui\qbrush.h \
+		C:\Qt\5.15.2\android\include\QtGui\qmatrix.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpolygon.h \
+		C:\Qt\5.15.2\android\include\QtGui\qregion.h \
+		C:\Qt\5.15.2\android\include\QtCore\qdatastream.h \
+		C:\Qt\5.15.2\android\include\QtCore\qline.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtransform.h \
+		C:\Qt\5.15.2\android\include\QtGui\qimage.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpixelformat.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpixmap.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfont.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfontmetrics.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfontinfo.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\5.15.2\android\include\QtGui\qcursor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qkeysequence.h \
+		C:\Qt\5.15.2\android\include\QtGui\qevent.h \
+		C:\Qt\5.15.2\android\include\QtCore\qurl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qurlquery.h \
+		C:\Qt\5.15.2\android\include\QtCore\qfile.h \
+		C:\Qt\5.15.2\android\include\QtCore\qfiledevice.h \
+		C:\Qt\5.15.2\android\include\QtGui\qvector2d.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\functions.obj ..\CCPS\functions.cpp
 
 arm64-v8a\main.obj: ..\CCPS\main.cpp ..\CCPS\mainwindow.h \
@@ -632,7 +887,22 @@ arm64-v8a\main.obj: ..\CCPS\main.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtCore\QString \
+		..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray \
 		..\CCPS\work.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QScrollBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qscrollbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
 		..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QApplication \
 		C:\Qt\5.15.2\android\include\QtWidgets\qapplication.h \
@@ -751,7 +1021,22 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
 		..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtCore\QString \
+		..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray \
 		..\CCPS\work.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QScrollBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qscrollbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
 		..\CCPS\registrwindow.h \
 		ui_mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtCore\QVariant \
@@ -786,13 +1071,127 @@ arm64-v8a\mainwindow.obj: ..\CCPS\mainwindow.cpp ..\CCPS\mainwindow.h \
 		C:\Qt\5.15.2\android\include\QtGui\QScreen \
 		C:\Qt\5.15.2\android\include\QtGui\qscreen.h \
 		C:\Qt\5.15.2\android\include\QtCore\QList \
-		C:\Qt\5.15.2\android\include\QtCore\QObject \
 		C:\Qt\5.15.2\android\include\QtCore\QRect \
 		C:\Qt\5.15.2\android\include\QtCore\QSize \
 		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
 		C:\Qt\5.15.2\android\include\QtGui\QTransform \
 		C:\Qt\5.15.2\android\include\QtGui\QScreenOrientationChangeEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\mainwindow.obj ..\CCPS\mainwindow.cpp
+
+arm64-v8a\mytcpclient.obj: ..\CCPS\mytcpclient.cpp ..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtCore\qobject.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.15.2\android\include\QtCore\qnamespace.h \
+		C:\Qt\5.15.2\android\include\QtCore\qglobal.h \
+		C:\Qt\5.15.2\android\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.15.2\android\include\QtCore\qconfig.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtcore-config.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsysinfo.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlogging.h \
+		C:\Qt\5.15.2\android\include\QtCore\qflags.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.15.2\android\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.15.2\android\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.15.2\android\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmutex.h \
+		C:\Qt\5.15.2\android\include\QtCore\qnumeric.h \
+		C:\Qt\5.15.2\android\include\QtCore\qversiontagging.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstring.h \
+		C:\Qt\5.15.2\android\include\QtCore\qchar.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbytearray.h \
+		C:\Qt\5.15.2\android\include\QtCore\qrefcount.h \
+		C:\Qt\5.15.2\android\include\QtCore\qarraydata.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringliteral.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringalgorithms.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringview.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qalgorithms.h \
+		C:\Qt\5.15.2\android\include\QtCore\qiterator.h \
+		C:\Qt\5.15.2\android\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.15.2\android\include\QtCore\qpair.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvector.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qpoint.h \
+		C:\Qt\5.15.2\android\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringlist.h \
+		C:\Qt\5.15.2\android\include\QtCore\qregexp.h \
+		C:\Qt\5.15.2\android\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcoreevent.h \
+		C:\Qt\5.15.2\android\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmetatype.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.15.2\android\include\QtCore\qobject_impl.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtCore\qiodevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\qdebug.h \
+		C:\Qt\5.15.2\android\include\QtCore\qhash.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmap.h \
+		C:\Qt\5.15.2\android\include\QtCore\qtextstream.h \
+		C:\Qt\5.15.2\android\include\QtCore\qlocale.h \
+		C:\Qt\5.15.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.15.2\android\include\QtCore\qshareddata.h \
+		C:\Qt\5.15.2\android\include\QtCore\qset.h \
+		C:\Qt\5.15.2\android\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtguiglobal.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtgui-config.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qwidget.h \
+		C:\Qt\5.15.2\android\include\QtGui\qwindowdefs.h \
+		C:\Qt\5.15.2\android\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\5.15.2\android\include\QtCore\qmargins.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpaintdevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\qrect.h \
+		C:\Qt\5.15.2\android\include\QtCore\qsize.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpalette.h \
+		C:\Qt\5.15.2\android\include\QtGui\qcolor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qrgb.h \
+		C:\Qt\5.15.2\android\include\QtGui\qrgba64.h \
+		C:\Qt\5.15.2\android\include\QtGui\qbrush.h \
+		C:\Qt\5.15.2\android\include\QtGui\qmatrix.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpolygon.h \
+		C:\Qt\5.15.2\android\include\QtGui\qregion.h \
+		C:\Qt\5.15.2\android\include\QtCore\qdatastream.h \
+		C:\Qt\5.15.2\android\include\QtCore\qline.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtransform.h \
+		C:\Qt\5.15.2\android\include\QtGui\qimage.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpixelformat.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpixmap.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfont.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfontmetrics.h \
+		C:\Qt\5.15.2\android\include\QtGui\qfontinfo.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\5.15.2\android\include\QtGui\qcursor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qkeysequence.h \
+		C:\Qt\5.15.2\android\include\QtGui\qevent.h \
+		C:\Qt\5.15.2\android\include\QtCore\qurl.h \
+		C:\Qt\5.15.2\android\include\QtCore\qurlquery.h \
+		C:\Qt\5.15.2\android\include\QtCore\qfile.h \
+		C:\Qt\5.15.2\android\include\QtCore\qfiledevice.h \
+		C:\Qt\5.15.2\android\include\QtGui\qvector2d.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\mytcpclient.obj ..\CCPS\mytcpclient.cpp
 
 arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMainWindow \
@@ -944,11 +1343,24 @@ arm64-v8a\registrwindow.obj: ..\CCPS\registrwindow.cpp ..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qstatusbar.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\work.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QScrollBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qscrollbar.h \
 		..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtCore\QString \
+		..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray \
 		C:\Qt\5.15.2\android\include\QtGui\QScreen \
 		C:\Qt\5.15.2\android\include\QtGui\qscreen.h \
 		C:\Qt\5.15.2\android\include\QtCore\QList \
-		C:\Qt\5.15.2\android\include\QtCore\QObject \
 		C:\Qt\5.15.2\android\include\QtCore\QRect \
 		C:\Qt\5.15.2\android\include\QtCore\QSize \
 		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
@@ -1062,6 +1474,9 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtGui\qtouchdevice.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qtabwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qicon.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QScrollBar \
+		C:\Qt\5.15.2\android\include\QtWidgets\qscrollbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractslider.h \
 		ui_work.h \
 		C:\Qt\5.15.2\android\include\QtCore\QVariant \
 		C:\Qt\5.15.2\android\include\QtWidgets\QApplication \
@@ -1087,11 +1502,22 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\mainwindow.h \
 		..\CCPS\functions.h \
+		C:\Qt\5.15.2\android\include\QtCore\QString \
+		..\CCPS\mytcpclient.h \
+		C:\Qt\5.15.2\android\include\QtCore\QObject \
+		C:\Qt\5.15.2\android\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.15.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QMessageBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qdialog.h \
+		C:\Qt\5.15.2\android\include\QtCore\QByteArray \
 		..\CCPS\registrwindow.h \
 		C:\Qt\5.15.2\android\include\QtGui\QScreen \
 		C:\Qt\5.15.2\android\include\QtGui\qscreen.h \
 		C:\Qt\5.15.2\android\include\QtCore\QList \
-		C:\Qt\5.15.2\android\include\QtCore\QObject \
 		C:\Qt\5.15.2\android\include\QtCore\QRect \
 		C:\Qt\5.15.2\android\include\QtCore\QSize \
 		C:\Qt\5.15.2\android\include\QtCore\QSizeF \
@@ -1103,6 +1529,9 @@ arm64-v8a\qrc_resources.obj: arm64-v8a\qrc_resources.cpp
 
 arm64-v8a\moc_mainwindow.obj: arm64-v8a\moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_mainwindow.obj arm64-v8a\moc_mainwindow.cpp
+
+arm64-v8a\moc_mytcpclient.obj: arm64-v8a\moc_mytcpclient.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_mytcpclient.obj arm64-v8a\moc_mytcpclient.cpp
 
 arm64-v8a\moc_registrwindow.obj: arm64-v8a\moc_registrwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arm64-v8a\moc_registrwindow.obj arm64-v8a\moc_registrwindow.cpp

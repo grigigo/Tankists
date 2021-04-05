@@ -1,0 +1,11 @@
+arm64-v8a/functions.obj
+arm64-v8a/main.obj
+arm64-v8a/mainwindow.obj
+arm64-v8a/mytcpclient.obj
+arm64-v8a/registrwindow.obj
+arm64-v8a/work.obj
+arm64-v8a/qrc_resources.obj
+arm64-v8a/moc_mainwindow.obj
+arm64-v8a/moc_mytcpclient.obj
+arm64-v8a/moc_registrwindow.obj
+arm64-v8a/moc_work.obj

@@ -268,6 +268,7 @@ Makefile: ../CCPS/CCPS.pro C:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf 
 		../CCPS/CCPS.pro \
 		C:/Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl \
 		C:/Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl \
+		C:/Qt/5.15.2/mingw81_64/lib/Qt5Network.prl \
 		C:/Qt/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		C:/Qt/5.15.2/mingw81_64/lib/qtmain.prl \
 		C:/Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
@@ -471,6 +472,7 @@ C:/Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf:
 ../CCPS/CCPS.pro:
 C:/Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl:
 C:/Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl:
+C:/Qt/5.15.2/mingw81_64/lib/Qt5Network.prl:
 C:/Qt/5.15.2/mingw81_64/lib/Qt5Core.prl:
 C:/Qt/5.15.2/mingw81_64/lib/qtmain.prl:
 C:/Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:

@@ -3,11 +3,13 @@
 
 #include <QString>
 #include <fstream>
+#include <QTcpSocket>
 #include <QDebug>
+#include <QByteArray>
 
-bool authorize(std::string message);//авторизация
+void authorize(std::string message, QTcpSocket *clientSocket);//авторизация
 
-bool registration(std::string message);//регистрация
+void registration(std::string message);//регистрация
 
 void send_message(std::string message); // отправка сообщения клиенту
 

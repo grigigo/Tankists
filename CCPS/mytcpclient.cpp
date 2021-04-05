@@ -14,12 +14,14 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 }*/
 
 void MyTcpClient::slot_connected() {
+    //client_socket->write()
+
     //QMessageBox Msg;
     //Msg.setText("Connected!!!");
     //Msg.exec();
 }
 
-void MyTcpClient::slot_readyRead() {
+QString MyTcpClient::slot_readyRead() {
     QByteArray array;
     QString message = "";
 
@@ -31,6 +33,8 @@ void MyTcpClient::slot_readyRead() {
     QMessageBox Msg;
     Msg.setText(message);
     Msg.exec();
+
+    return message;
 }
 
 void MyTcpClient::slot_send_to_server(QString message) {

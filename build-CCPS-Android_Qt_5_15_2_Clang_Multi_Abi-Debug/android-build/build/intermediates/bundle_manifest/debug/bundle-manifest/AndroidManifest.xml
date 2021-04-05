@@ -14,6 +14,7 @@
     -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!--
          The following comment will be replaced upon deployment with default features based on the dependencies of the application.
@@ -80,7 +81,7 @@
                 android:resource="@array/load_local_libs" />
             <meta-data
                 android:name="android.app.load_local_jars"
-                android:value="jar/QtAndroid.jar" />
+                android:value="jar/QtAndroid.jar:jar/QtAndroidBearer.jar" />
             <meta-data
                 android:name="android.app.static_init_classes"
                 android:value="" />

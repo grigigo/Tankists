@@ -189,30 +189,30 @@
                         "endOffsets": "427,318,195,526"
                     },
                     "to": {
-                        "startLines": "17,18,19,20",
+                        "startLines": "18,19,20,21",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "582,690,812,924",
+                        "startOffsets": "680,788,910,1022",
                         "endColumns": "107,121,111,97",
-                        "endOffsets": "685,807,919,1017"
+                        "endOffsets": "783,905,1017,1115"
                     }
                 },
                 {
                     "source": "C:\\Users\\grish\\Documents\\ProjectsQt\\Tankists\\build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug\\android-build\\res\\values\\libs.xml",
                     "from": {
-                        "startLines": "9,20,13,2",
+                        "startLines": "9,21,13,2",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "301,596,360,57",
-                        "endLines": "11,22,18,4",
+                        "startOffsets": "301,648,360,57",
+                        "endLines": "11,23,19,4",
                         "endColumns": "12,12,12,12",
-                        "endOffsets": "352,719,588,170"
+                        "endOffsets": "352,817,640,170"
                     },
                     "to": {
-                        "startLines": "2,5,8,14",
+                        "startLines": "2,5,8,15",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "55,109,235,466",
-                        "endLines": "4,7,13,16",
+                        "startOffsets": "55,109,281,564",
+                        "endLines": "4,7,14,17",
                         "endColumns": "12,12,12,12",
-                        "endOffsets": "104,230,461,577"
+                        "endOffsets": "104,276,559,675"
                     }
                 }
             ]

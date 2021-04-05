@@ -29,8 +29,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+
 private:
     Ui::Work *ui;
+    std::string mylogin;
 
 signals:
     void signM();
