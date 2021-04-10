@@ -88,5 +88,8 @@ void Work::on_pushButton_3_clicked()
     QString text = doc->toHtml();
 
     ui->textBrowser->setAlignment(Qt::AlignRight);
-    ui->textBrowser->setText(text + message);
+    QMessageBox Msg;
+    Msg.setText(text);
+    Msg.exec();
+    ui->textBrowser->setText(text + "<p align=\"right\">" + message + "</p>");
 }

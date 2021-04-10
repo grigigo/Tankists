@@ -3,7 +3,7 @@
 MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {
     client_socket = new QTcpSocket(this);
-    client_socket->connectToHost("127.0.0.1", 33333);
+    client_socket->connectToHost("192.168.137.1", 33333);
     connect (client_socket, SIGNAL(connected()), SLOT(slot_connected()));
     connect (client_socket, SIGNAL(readyRead()), SLOT(slot_readyRead_con()));
 }

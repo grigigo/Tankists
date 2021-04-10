@@ -14,17 +14,17 @@ bool Functions::authorize(QString login, QString password)
     clientAuth->slot_send_to_server(request);
 
     QString answer = clientAuth->slot_readyRead();
-    QMessageBox Msg;
+    /*QMessageBox Msg;
     Msg.setText("first zero" + answer);
-    Msg.exec();
+    Msg.exec();*/
 
     answer = clientAuth->slot_readyRead();
 
-    //QMessageBox Msg;
+    QMessageBox Msg;
     Msg.setText("auth " + answer);
     Msg.exec();
 
-    if (answer == login)
+    if (answer == "YES")// поменять на ес или ноу
         return true;
     else
         return false;
@@ -37,15 +37,15 @@ bool Functions::registration(QString login, QString password)
 
     QString answer = clientAuth->slot_readyRead();
 
-    QMessageBox Msg;
+    /*QMessageBox Msg;
     Msg.setText("first zero" + answer);
-    Msg.exec();
+    Msg.exec();*/
 
     answer = clientAuth->slot_readyRead();
 
-    //QMessageBox Msg;
+    /*QMessageBox Msg;
     Msg.setText("reg " + answer);
-    Msg.exec();
+    Msg.exec();*/
 
     if (answer == "YES")
         return true;

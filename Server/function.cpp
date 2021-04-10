@@ -7,19 +7,13 @@ void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, 
     std::string login = message.substr(0, pos);
     message.erase(0, pos + 1);
     QString mylogin = QString::fromStdString(login); // QString::fromStdString(message);
-    qDebug() << mylogin;
 
     std::string password = message;
-    qDebug() << QString::fromUtf8(password.c_str());
-    qDebug() << clientSocket;
 
 
-    if (map[login] == password)
+    if (map[login] == password)// and password!="")    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     {
-        QByteArray array;
-        array.append(mylogin.toUtf8());
-        qDebug() << array;
-        clientSocket->write(array);
+        clientSocket->write("YES");
     }
     else
     {

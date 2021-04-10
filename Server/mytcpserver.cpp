@@ -26,6 +26,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     logPass["Tim"] = "12345";
     logPass["Gri"] = "676767";
     logPass["Oleg"] = "lox";
+
 }
 
 void MyTcpServer::slotNewConnection(){
