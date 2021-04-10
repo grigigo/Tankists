@@ -1486,9 +1486,16 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.15.2\android\include\QtGui\qguiapplication.h \
 		C:\Qt\5.15.2\android\include\QtGui\qinputmethod.h \
-		C:\Qt\5.15.2\android\include\QtWidgets\QLabel \
-		C:\Qt\5.15.2\android\include\QtWidgets\qlabel.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QFrame \
 		C:\Qt\5.15.2\android\include\QtWidgets\qframe.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QGroupBox \
+		C:\Qt\5.15.2\android\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QLineEdit \
+		C:\Qt\5.15.2\android\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextcursor.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextformat.h \
+		C:\Qt\5.15.2\android\include\QtGui\qpen.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextoption.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QMenuBar \
 		C:\Qt\5.15.2\android\include\QtWidgets\qmenubar.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qmenu.h \
@@ -1499,6 +1506,11 @@ arm64-v8a\work.obj: ..\CCPS\work.cpp ..\CCPS\work.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\qabstractbutton.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QStatusBar \
 		C:\Qt\5.15.2\android\include\QtWidgets\qstatusbar.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\QTextBrowser \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtextbrowser.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qtextedit.h \
+		C:\Qt\5.15.2\android\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.15.2\android\include\QtGui\qtextdocument.h \
 		C:\Qt\5.15.2\android\include\QtWidgets\QWidget \
 		..\CCPS\mainwindow.h \
 		..\CCPS\functions.h \

@@ -22,6 +22,10 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
         server_status=1;
         qDebug() << "server is started";
     }
+
+    logPass["Tim"] = "12345";
+    logPass["Gri"] = "676767";
+    logPass["Oleg"] = "lox";
 }
 
 void MyTcpServer::slotNewConnection(){
@@ -57,11 +61,11 @@ void MyTcpServer::slotServerRead(){
         }
         else if (code=="auth")
         {
-            authorize(message, clientSocket);
+            authorize(message, clientSocket, logPass);
         }
         else if (code=="reg")
         {
-
+            registration(message, clientSocket, logPass);
         }
     }
 

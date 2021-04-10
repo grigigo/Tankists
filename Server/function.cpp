@@ -1,7 +1,7 @@
 #include "function.h"
 
 
-void authorize(std::string message, QTcpSocket *clientSocket)
+void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map)
 {
     int pos = message.find("&");
     std::string login = message.substr(0, pos);
@@ -13,7 +13,8 @@ void authorize(std::string message, QTcpSocket *clientSocket)
     qDebug() << QString::fromUtf8(password.c_str());
     qDebug() << clientSocket;
 
-    if ((login == "Tim" && password == "12345") || (login == "Gri" && password == "676767") || (login == "Oleg" && password == "lox"))
+
+    if (map[login] == password)
     {
         QByteArray array;
         array.append(mylogin.toUtf8());
@@ -21,10 +22,13 @@ void authorize(std::string message, QTcpSocket *clientSocket)
         clientSocket->write(array);
     }
     else
+    {
+        qDebug() << "NOPE";
         clientSocket->write("NOPE");
+    }
 }
 
-void registration(std::string message)
+void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map)
 {
     int pos = message.find("&");
     std::string login = message.substr(0, pos);
@@ -36,7 +40,13 @@ void registration(std::string message)
 
     std::string department = message;
 
-    //return (login.size() > 3 and password.size() > 3);
+    map[login] = password;
+
+    QString mypass = QString::fromStdString(map[login]);
+
+    qDebug() << mypass;
+
+    clientSocket->write("YES");
 }
 
 void send_message(std::string chatName)

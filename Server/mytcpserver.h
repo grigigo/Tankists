@@ -6,6 +6,7 @@
 #include <QtNetwork>
 #include <QByteArray>
 #include <QDebug>
+#include <map>
 #include "function.h"
 
 class MyTcpServer : public QObject
@@ -17,6 +18,7 @@ public:
     QTcpServer * mTcpServer;
     int server_status;
     QMap<int,QTcpSocket *> SClients;
+    QMap<std::string, std::string> logPass;
 
 public slots:
     void slotNewConnection();

@@ -21,6 +21,7 @@ private:
 public slots:
     void slot_connected();
     QString slot_readyRead();//
+    void slot_readyRead_con();
     void slot_send_to_server(QString message); // отправляем msg=login+pass на сервер
     void slot_disconnected();
 };

@@ -14,9 +14,14 @@ bool Functions::authorize(QString login, QString password)
     clientAuth->slot_send_to_server(request);
 
     QString answer = clientAuth->slot_readyRead();
-
     QMessageBox Msg;
-    Msg.setText(answer);
+    Msg.setText("first zero" + answer);
+    Msg.exec();
+
+    answer = clientAuth->slot_readyRead();
+
+    //QMessageBox Msg;
+    Msg.setText("auth " + answer);
     Msg.exec();
 
     if (answer == login)
@@ -27,7 +32,25 @@ bool Functions::authorize(QString login, QString password)
 
 bool Functions::registration(QString login, QString password)
 {
-return (login.size() > 3 and password.size() > 3);
+    QString request = "reg&" + login + "&" + password;
+    clientAuth->slot_send_to_server(request);
+
+    QString answer = clientAuth->slot_readyRead();
+
+    QMessageBox Msg;
+    Msg.setText("first zero" + answer);
+    Msg.exec();
+
+    answer = clientAuth->slot_readyRead();
+
+    //QMessageBox Msg;
+    Msg.setText("reg " + answer);
+    Msg.exec();
+
+    if (answer == "YES")
+        return true;
+    else
+        return false;
 }
 
 bool send_message(QString message)

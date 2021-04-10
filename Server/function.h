@@ -7,9 +7,9 @@
 #include <QDebug>
 #include <QByteArray>
 
-void authorize(std::string message, QTcpSocket *clientSocket);//авторизация
+void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map);//авторизация
 
-void registration(std::string message);//регистрация
+void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map);//регистрация
 
 void send_message(std::string message); // отправка сообщения клиенту
 
