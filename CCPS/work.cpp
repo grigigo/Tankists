@@ -1,8 +1,6 @@
 #include "work.h"
 #include "ui_work.h"
 #include "mainwindow.h"
-#include <QScreen>
-#include "functions.h"
 
 Work::Work(QWidget *parent) :
     QMainWindow(parent),
@@ -69,6 +67,10 @@ void Work::on_depart_chat_button_clicked()
     ui->frame->setVisible(false);
 
     ui->frame_2->setVisible(true);
+
+    QString text = myuser->chat_history_request("depart");
+
+    ui->textBrowser->setText(text);
 }
 
 void Work::on_pushButton_2_clicked()
@@ -81,15 +83,23 @@ void Work::on_pushButton_2_clicked()
 void Work::on_pushButton_3_clicked()
 {
     QString message = ui->textEdit->text();
+
     ui->textEdit->setText("");
-    send_message("depart_chat&" + message); // Не забыть поменять название чата
+    myuser->send_message("depart&" + mylogin + "&" + message); // Не забыть поменять название чата
 
     QTextDocument *doc = ui->textBrowser->document();
     QString text = doc->toHtml();
 
-    ui->textBrowser->setAlignment(Qt::AlignRight);
-    QMessageBox Msg;
+    /*QMessageBox Msg;
     Msg.setText(text);
-    Msg.exec();
-    ui->textBrowser->setText(text + "<p align=\"right\">" + message + "</p>");
+    Msg.exec();*/
+
+    ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + message + "</p>");
+}
+
+void Work::setPalmalive(QString login, Functions *user)
+{
+    mylogin = login;
+    myuser = user;
+    //emit signM();
 }

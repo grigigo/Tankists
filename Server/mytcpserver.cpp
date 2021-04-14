@@ -46,7 +46,7 @@ void MyTcpServer::slotServerRead(){
     while(clientSocket->bytesAvailable()>0)
     {
         QByteArray array = clientSocket->readAll();
-        std::string code="";
+        std::string code = "";
         std::string message;
         message = array.toStdString();
         qDebug() << QString::fromStdString(message);
@@ -56,17 +56,21 @@ void MyTcpServer::slotServerRead(){
         code = message.substr(0,pos);
         message.erase(0,pos+1);
 
-        if (code=="message")
+        if (code == "message")
         {
-        //push_to_file(message);
+            push_to_file(message, SClients, clientSocket);
         }
-        else if (code=="auth")
+        else if (code == "auth")
         {
             authorize(message, clientSocket, logPass);
         }
-        else if (code=="reg")
+        else if (code == "reg")
         {
             registration(message, clientSocket, logPass);
+        }
+        else if (code == "history")
+        {
+            send_history(message, clientSocket);
         }
     }
 

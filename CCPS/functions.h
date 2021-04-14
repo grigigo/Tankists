@@ -14,11 +14,12 @@ public:
 
     bool authorize(QString login, QString password);//авторизация
 
+    void send_message(QString message);//Отправка сообщения
+
     bool registration(QString login, QString password);//регистрация*/
 
-    //bool send_message(QString message);//Отправка сообщения
+    QString chat_history_request(QString chatName);
 };
 
-bool send_message(QString message);//Отправка сообщения
 
 #endif // FUNCTIONS_H

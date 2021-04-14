@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QScrollBar>
+#include <fstream>
+#include <QScreen>
+#include "functions.h"
+
 namespace Ui {
 class Work;
 }
@@ -14,6 +18,11 @@ class Work : public QMainWindow
 public:
     explicit Work(QWidget *parent = nullptr);
     ~Work();
+    QString mylogin;
+    Functions *myuser;
+
+public slots:
+    void setPalmalive(QString login, Functions *user);
 
 private slots:
 
@@ -32,7 +41,6 @@ private slots:
 
 private:
     Ui::Work *ui;
-    std::string mylogin;
 
 signals:
     void signM();

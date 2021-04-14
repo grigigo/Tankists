@@ -3,9 +3,9 @@
 MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {
     client_socket = new QTcpSocket(this);
-    client_socket->connectToHost("192.168.137.1", 33333);
+    client_socket->connectToHost("127.0.0.1", 33333);
     connect (client_socket, SIGNAL(connected()), SLOT(slot_connected()));
-    connect (client_socket, SIGNAL(readyRead()), SLOT(slot_readyRead_con()));
+    connect (client_socket, SIGNAL(readyRead()), SLOT(slot_readyRead()));
 }
 
 /*MyTcpClient::~MyTcpClient()
@@ -31,24 +31,10 @@ QString MyTcpClient::slot_readyRead() {
     }
 
     QMessageBox Msg;
-    Msg.setText("norm" + message);
+    Msg.setText("read " + message);
     Msg.exec();
 
     return message;
-}
-
-void MyTcpClient::slot_readyRead_con() {
-    QByteArray array;
-    QString message = "";
-
-    while(client_socket->bytesAvailable() > 0) {
-        array = client_socket->readAll();
-        message += array;
-    }
-
-    QMessageBox Msg;
-    Msg.setText("con" + message);
-    Msg.exec();
 }
 
 

@@ -67,6 +67,7 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
     if (user->authorize(login, password))// Проверка логина и пароля
     {
         //mylogin = login;
+        work->setPalmalive(login, user);
         this->close();
         work->show();
     }
@@ -84,3 +85,4 @@ void MainWindow::on_pushButton_2_clicked() // кнопка регистраци�
     registr->show();
     this->close();
 }
+
