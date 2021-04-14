@@ -8,7 +8,12 @@
 #include <QDebug>
 #include <map>
 #include "function.h"
-
+#include <QDebug>
+#include <QSqlRecord>
+#include <QSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlField>
 class MyTcpServer : public QObject
 {
     Q_OBJECT
@@ -19,6 +24,7 @@ public:
     int server_status;
     QMap<int,QTcpSocket *> SClients;
     QMap<std::string, std::string> logPass;
+    QSqlDatabase db;
 
 public slots:
     void slotNewConnection();

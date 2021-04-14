@@ -11,6 +11,7 @@ MyTcpServer::~MyTcpServer()
     }
     server_status = 0;
     mTcpServer->close();
+    db.close();
 }
 MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     mTcpServer = new QTcpServer(this);
@@ -26,6 +27,24 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     logPass["Tim"] = "12345";
     logPass["Gri"] = "676767";
     logPass["Oleg"] = "lox";
+
+    // лучший код на свете
+
+    db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName("127.0.0.1");
+    db.setDatabaseName("postgres");
+    db.setUserName("postgres");
+    db.setPassword("3803038030");
+    db.open();
+    QSqlQuery que;
+    QString temp;
+    que.exec("select * from users");
+    while (que.next())
+    {
+        temp= que.value(0).toString();
+
+        qDebug()<<temp;
+    }
 
 }
 

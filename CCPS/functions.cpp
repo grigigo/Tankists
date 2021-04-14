@@ -30,6 +30,8 @@ bool Functions::authorize(QString login, QString password)
         return false;
 }
 
+
+
 bool Functions::registration(QString login, QString password)
 {
     QString request = "reg&" + login + "&" + password;

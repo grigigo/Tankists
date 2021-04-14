@@ -18,3 +18,4 @@ void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients, QTcpSock
 void send_history(std::string message, QTcpSocket *clientSocket);
 
 #endif // FUNCTION_H
+//  select login from users join users_chats on users_chats.id_user = users.id_user where id_chat = 1;
