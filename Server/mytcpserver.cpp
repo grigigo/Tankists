@@ -24,26 +24,24 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
         qDebug() << "server is started";
     }
 
-    logPass["Tim"] = "12345";
-    logPass["Gri"] = "676767";
-    logPass["Oleg"] = "lox";
+    logPass[""] = "";
 
     // лучший код на свете
 
     db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName("127.0.0.1");
-    db.setDatabaseName("postgres");
+    db.setDatabaseName("qtccps");
     db.setUserName("postgres");
     db.setPassword("3803038030");
     db.open();
     QSqlQuery que;
-    QString temp;
+    QString temp,temp2;
     que.exec("select * from users");
     while (que.next())
     {
-        temp= que.value(0).toString();
-
-        qDebug()<<temp;
+       temp = que.value(1).toString();
+        temp2 = que.value(2).toString();
+        logPass[temp.toLocal8Bit().constData()] = temp2.toLocal8Bit().constData();
     }
 
 }
