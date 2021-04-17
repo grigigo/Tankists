@@ -110,5 +110,8 @@ void Work::setPalmalive(QString login, Functions *user)
 
 void Work::writeToQTextBrowser(QString history)
 {
-    ui->textBrowser->setText(history);
+    QTextDocument *doc = ui->textBrowser->document();
+    QString text = doc->toHtml();
+
+    ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + history + "</p>");
 }
