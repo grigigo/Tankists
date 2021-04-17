@@ -36,10 +36,11 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     db.open();
     QSqlQuery que;
     QString temp,temp2;
-    que.exec("select * from users");
+    que.exec("select * from users;");
+
     while (que.next())
     {
-       temp = que.value(1).toString();
+        temp = que.value(1).toString();
         temp2 = que.value(2).toString();
         logPass[temp.toLocal8Bit().constData()] = temp2.toLocal8Bit().constData();
     }

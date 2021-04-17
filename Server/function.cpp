@@ -1,4 +1,5 @@
 #include "function.h"
+#include "mytcpserver.h"
 
 
 void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map)
@@ -11,18 +12,18 @@ void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, 
     std::string password = message;
 
 
-    if (map[login] == password || password == "")
+    if (map[login] == password && password != "")
     {
-        clientSocket->write("auth&YES");
+        clientSocket->write("authRes&YES");
     }
     else
     {
         qDebug() << "NOPE";
-        clientSocket->write("auth&NOPE");
+        clientSocket->write("authRes&NOPE");
     }
 }
 
-void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map)
+void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> &map)
 {
     int pos = message.find("&");
     std::string login = message.substr(0, pos);
@@ -32,13 +33,17 @@ void registration(std::string message, QTcpSocket *clientSocket, QMap<std::strin
     std::string password = message.substr(0, pos);
     message.erase(0, pos + 1);
 
-    std::string department = message;
-
     map[login] = password;
 
-    QString mypass = QString::fromStdString(map[login]);
+    QSqlQuery que;
+    QString temp;
+    std::string temp2;
+    que.exec("select * from users;");
+    temp2 = "insert into users (login, password) values ('" + login + "', '" + password + "');";
+    temp = QString::fromStdString(temp2);
+    que.exec(temp);
 
-    qDebug() << mypass;
+    qDebug() << temp;
 
     clientSocket->write("YES");
 }

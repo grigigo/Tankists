@@ -4,6 +4,7 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {
     client_socket = new QTcpSocket(this);
     client_socket->connectToHost("127.0.0.1", 33333);
+    //client_socket->connectToHost("192.168.137.1", 33333);
     connect (client_socket, SIGNAL(connected()), SLOT(slot_connected()));
     connect (client_socket, SIGNAL(readyRead()), SLOT(slot_readyRead()));
 }
@@ -21,7 +22,7 @@ void MyTcpClient::slot_connected() {
     //Msg.exec();
 }
 
-QString MyTcpClient::slot_readyRead() {
+void MyTcpClient::slot_readyRead() {
     QByteArray array;
     QString message = "";
 
@@ -34,7 +35,32 @@ QString MyTcpClient::slot_readyRead() {
     Msg.setText("read " + message);
     Msg.exec();
 
-    return message;
+    std::string code = "";
+    std::string text = message.toStdString();
+
+    int pos = text.find("&");
+
+    if (pos == -1) return;
+
+    code = text.substr(0, pos);
+    text.erase(0, pos + 1);
+
+    if (code == "authRes")
+    {
+        pos = text.find("&");
+        code = text.substr(0,pos);
+        if (code == "YES")
+            emit signAuthYes();
+        else
+            emit signAuthNope();
+    }
+    else if (code == "chat_history")
+    {
+        message = QString::fromStdString(text);
+        emit writeTextHistory(message);
+    }
+
+    //return message;
 }
 
 

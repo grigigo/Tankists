@@ -20,6 +20,7 @@ public:
     ~Work();
     QString mylogin;
     Functions *myuser;
+    MyTcpClient *mytcpclient;
 
 public slots:
     void setPalmalive(QString login, Functions *user);
@@ -38,6 +39,7 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void writeToQTextBrowser(QString history);
 
 private:
     Ui::Work *ui;

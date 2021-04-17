@@ -20,9 +20,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     work = new Work;
     registr = new RegistrWindow;
+    mytcpclient = new MyTcpClient;
 
-    connect(work, &Work::signM, this, &MainWindow::show);
-    connect(registr, &RegistrWindow::signReg, this, &MainWindow::show);
+    connect (work, &Work::signM, this, &MainWindow::show);
+    connect (registr, &RegistrWindow::signReg, this, &MainWindow::show);
+
+    connect (mytcpclient, &MyTcpClient::signAuthYes, this, &MainWindow::onLoginYes);
+    connect (mytcpclient, &MyTcpClient::signAuthNope, this, &MainWindow::onLoginNope);
+
 
     QScreen* screen = QApplication::screens().at(0);
     QSize size = screen->availableSize();
@@ -56,28 +61,29 @@ MainWindow::~MainWindow()
 }
 
 
+void MainWindow::onLoginYes()
+{
+    QString login = ui->login->text();
+
+    work->setPalmalive(login, user);
+    this->close();
+    work->show();
+}
+
+void MainWindow::onLoginNope()
+{
+    ui->info->setWordWrap(true); // если отрицание, никуда не переходим
+    ui->info->setVisible(true);
+}
 
 void MainWindow::on_pushButton_clicked()  // кнопка авторизация
 {
-    Functions *user = new Functions();
+    user = new Functions(mytcpclient);
 
     QString login = ui->login->text();
     QString password = ui->password->text();
 
-    if (user->authorize(login, password))// Проверка логина и пароля
-    {
-        //mylogin = login;
-        work->setPalmalive(login, user);
-        this->close();
-        work->show();
-    }
-    else
-    {
-        ui->info->setWordWrap(true); // если отрицание, никуда не переходим
-
-        ui->info->setVisible(true);
-        //ui->info->setText("Неправильный логин или пароль")
-    }
+    user->authorize(login, password);
 }
 
 void MainWindow::on_pushButton_2_clicked() // кнопка регистрация-назад

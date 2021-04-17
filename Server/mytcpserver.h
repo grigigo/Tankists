@@ -25,6 +25,7 @@ public:
     QMap<int,QTcpSocket *> SClients;
     QMap<std::string, std::string> logPass;
     QSqlDatabase db;
+    QSqlQuery que;
 
 public slots:
     void slotNewConnection();

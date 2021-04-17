@@ -20,9 +20,14 @@ private:
 
 public slots:
     void slot_connected();
-    QString slot_readyRead();
+    void slot_readyRead();
     void slot_send_to_server(QString message); // отправляем msg=login+pass на сервер
     void slot_disconnected();
+
+signals:
+    void signAuthYes();
+    void signAuthNope();
+    void writeTextHistory(QString history);
 };
 
 #endif // MYTCPCLIENT_H

@@ -1,6 +1,7 @@
 #include "work.h"
 #include "ui_work.h"
-#include "mainwindow.h"
+//#include "mytcpclient.h"
+//#include "mainwindow.h"
 
 Work::Work(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +12,11 @@ Work::Work(QWidget *parent) :
     QScreen* screen = QApplication::screens().at(0);
     QSize size = screen->availableSize();
 
+    mytcpclient = myuser->clientAuth;
+
+    //connect(mytcpclient, SIGNAL(writeTextHistory(QString)), SLOT(writeToQTextBrowser(QString)));
+
+    connect(mytcpclient, &MyTcpClient::writeTextHistory, this, &Work::writeToQTextBrowser);
 
     ui->frame->setGeometry(0,0, size.width(), size.height());
     ui->frame_2->setGeometry(0,0, size.width(), size.height());
@@ -68,9 +74,7 @@ void Work::on_depart_chat_button_clicked()
 
     ui->frame_2->setVisible(true);
 
-    QString text = myuser->chat_history_request("depart");
-
-    ui->textBrowser->setText(text);
+    myuser->chat_history_request("depart");
 }
 
 void Work::on_pushButton_2_clicked()
@@ -102,4 +106,9 @@ void Work::setPalmalive(QString login, Functions *user)
     mylogin = login;
     myuser = user;
     //emit signM();
+}
+
+void Work::writeToQTextBrowser(QString history)
+{
+    ui->textBrowser->setText(history);
 }

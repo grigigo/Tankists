@@ -6,19 +6,22 @@
 
 class Functions {
 private:
-    MyTcpClient *clientAuth;
+
 
 public:
+    Functions(MyTcpClient *client);
     Functions();
     ~Functions();
 
-    bool authorize(QString login, QString password);//авторизация
+    MyTcpClient *clientAuth;
+
+    void authorize(QString login, QString password);//авторизация
 
     void send_message(QString message);//Отправка сообщения
 
     bool registration(QString login, QString password);//регистрация*/
 
-    QString chat_history_request(QString chatName);
+    void chat_history_request(QString chatName);
 };
 
 

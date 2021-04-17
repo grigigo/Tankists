@@ -9,7 +9,7 @@
 
 void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map);//авторизация
 
-void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map);//регистрация
+void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> &map);//регистрация
 
 void send_message(std::string message, QMap<int,QTcpSocket *> SClients, QTcpSocket *clientSocket); // отправка сообщения клиенту
 
