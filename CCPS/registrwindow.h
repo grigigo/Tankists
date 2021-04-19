@@ -2,6 +2,8 @@
 #define REGISTRWINDOW_H
 
 #include <QMainWindow>
+#include <QScreen>
+#include "functions.h"
 
 namespace Ui {
 class RegistrWindow;

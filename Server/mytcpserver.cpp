@@ -32,7 +32,8 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     db.setHostName("127.0.0.1");
     db.setDatabaseName("qtccps");
     db.setUserName("postgres");
-    db.setPassword("3803038030");
+    //db.setPassword("3803038030");
+    db.setPassword("676767");
     db.open();
     QSqlQuery que;
     QString temp,temp2;
@@ -48,7 +49,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
 }
 
 void MyTcpServer::slotNewConnection(){
-    if(server_status==1){
+    if(server_status == 1){
         QTcpSocket* clientSocket = mTcpServer->nextPendingConnection();
         int idusersocs = (int)clientSocket->socketDescriptor();
         SClients[idusersocs] = clientSocket;
@@ -60,7 +61,7 @@ void MyTcpServer::slotNewConnection(){
 
 void MyTcpServer::slotServerRead(){
     QTcpSocket *clientSocket = (QTcpSocket*)sender();
-    int id =(int)clientSocket->socketDescriptor();
+    //int id =(int)clientSocket->socketDescriptor();
     while(clientSocket->bytesAvailable()>0)
     {
         QByteArray array = clientSocket->readAll();
@@ -99,6 +100,6 @@ void MyTcpServer::slotClientDisconnected(){
     int id =(int)clientSocket->socketDescriptor();
     clientSocket->close();
     SClients.remove(id);
-    server_status--;
+    //server_status--;
     qDebug()<<QString::fromUtf8("Client is disconnected /n");
 }

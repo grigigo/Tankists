@@ -2,11 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <QPixmap>
+#include <QScreen>
+#include <QApplication>
+#include <QScreenOrientationChangeEvent>
 #include "mytcpclient.h"
 #include "functions.h"
 #include "work.h"
 #include "registrwindow.h"
-#include "mytcpclient.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,7 +25,7 @@ public:
     ~MainWindow();
     void qwerty();
 
-private slots:
+public slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void onLoginYes();

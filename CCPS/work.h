@@ -45,7 +45,7 @@ private:
     Ui::Work *ui;
 
 signals:
-    void signM();
+    void signMy();
 };
 
 

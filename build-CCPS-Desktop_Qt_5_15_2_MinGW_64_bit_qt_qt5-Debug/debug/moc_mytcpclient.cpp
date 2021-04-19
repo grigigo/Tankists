@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MyTcpClient_t {
-    QByteArrayData data[8];
-    char stringdata0[108];
+    QByteArrayData data[11];
+    char stringdata0[139];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,17 +33,21 @@ struct qt_meta_stringdata_MyTcpClient_t {
 static const qt_meta_stringdata_MyTcpClient_t qt_meta_stringdata_MyTcpClient = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "MyTcpClient"
-QT_MOC_LITERAL(1, 12, 14), // "slot_connected"
-QT_MOC_LITERAL(2, 27, 0), // ""
-QT_MOC_LITERAL(3, 28, 14), // "slot_readyRead"
-QT_MOC_LITERAL(4, 43, 18), // "slot_readyRead_con"
-QT_MOC_LITERAL(5, 62, 19), // "slot_send_to_server"
-QT_MOC_LITERAL(6, 82, 7), // "message"
-QT_MOC_LITERAL(7, 90, 17) // "slot_disconnected"
+QT_MOC_LITERAL(1, 12, 11), // "signAuthYes"
+QT_MOC_LITERAL(2, 24, 0), // ""
+QT_MOC_LITERAL(3, 25, 12), // "signAuthNope"
+QT_MOC_LITERAL(4, 38, 16), // "writeTextHistory"
+QT_MOC_LITERAL(5, 55, 7), // "history"
+QT_MOC_LITERAL(6, 63, 14), // "slot_connected"
+QT_MOC_LITERAL(7, 78, 14), // "slot_readyRead"
+QT_MOC_LITERAL(8, 93, 19), // "slot_send_to_server"
+QT_MOC_LITERAL(9, 113, 7), // "message"
+QT_MOC_LITERAL(10, 121, 17) // "slot_disconnected"
 
     },
-    "MyTcpClient\0slot_connected\0\0slot_readyRead\0"
-    "slot_readyRead_con\0slot_send_to_server\0"
+    "MyTcpClient\0signAuthYes\0\0signAuthNope\0"
+    "writeTextHistory\0history\0slot_connected\0"
+    "slot_readyRead\0slot_send_to_server\0"
     "message\0slot_disconnected"
 };
 #undef QT_MOC_LITERAL
@@ -54,25 +58,33 @@ static const uint qt_meta_data_MyTcpClient[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       3,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   49,    2, 0x06 /* Public */,
+       3,    0,   50,    2, 0x06 /* Public */,
+       4,    1,   51,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x0a /* Public */,
-       3,    0,   40,    2, 0x0a /* Public */,
-       4,    0,   41,    2, 0x0a /* Public */,
-       5,    1,   42,    2, 0x0a /* Public */,
-       7,    0,   45,    2, 0x0a /* Public */,
+       6,    0,   54,    2, 0x0a /* Public */,
+       7,    0,   55,    2, 0x0a /* Public */,
+       8,    1,   56,    2, 0x0a /* Public */,
+      10,    0,   59,    2, 0x0a /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    5,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::QString,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString,    9,
     QMetaType::Void,
 
        0        // eod
@@ -84,13 +96,37 @@ void MyTcpClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<MyTcpClient *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->slot_connected(); break;
-        case 1: { QString _r = _t->slot_readyRead();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 2: _t->slot_readyRead_con(); break;
-        case 3: _t->slot_send_to_server((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 4: _t->slot_disconnected(); break;
+        case 0: _t->signAuthYes(); break;
+        case 1: _t->signAuthNope(); break;
+        case 2: _t->writeTextHistory((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->slot_connected(); break;
+        case 4: _t->slot_readyRead(); break;
+        case 5: _t->slot_send_to_server((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 6: _t->slot_disconnected(); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (MyTcpClient::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MyTcpClient::signAuthYes)) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (MyTcpClient::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MyTcpClient::signAuthNope)) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (MyTcpClient::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MyTcpClient::writeTextHistory)) {
+                *result = 2;
+                return;
+            }
         }
     }
 }
@@ -124,15 +160,34 @@ int MyTcpClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
+}
+
+// SIGNAL 0
+void MyTcpClient::signAuthYes()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void MyTcpClient::signAuthNope()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void MyTcpClient::writeTextHistory(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

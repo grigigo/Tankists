@@ -1,5 +1,6 @@
 #ifndef MYTCPSERVER_H
 #define MYTCPSERVER_H
+
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
@@ -14,6 +15,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlField>
+
 class MyTcpServer : public QObject
 {
     Q_OBJECT

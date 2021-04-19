@@ -1,10 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QPushButton>
-#include <QPixmap>
-#include <QScreen>
-#include <QApplication>
-#include <QScreenOrientationChangeEvent>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,15 +9,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->info->setVisible(false);
 
-    //std::string mylogin = "";
-
     QPixmap pix(":/images/CCPS-3.png");
 
     work = new Work;
     registr = new RegistrWindow;
     mytcpclient = new MyTcpClient;
 
-    connect (work, &Work::signM, this, &MainWindow::show);
+    connect (work, &Work::signMy, this, &MainWindow::show);
     connect (registr, &RegistrWindow::signReg, this, &MainWindow::show);
 
     connect (mytcpclient, &MyTcpClient::signAuthYes, this, &MainWindow::onLoginYes);

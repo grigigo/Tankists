@@ -1,8 +1,5 @@
 #include "registrwindow.h"
 #include "ui_registrwindow.h"
-#include "work.h"
-#include "functions.h"
-#include <QScreen>
 
 RegistrWindow::RegistrWindow(QWidget *parent) :
     QMainWindow(parent),

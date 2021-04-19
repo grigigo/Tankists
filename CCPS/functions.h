@@ -1,5 +1,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
+
 #include <string>
 #include <QString>
 #include "mytcpclient.h"

@@ -1,7 +1,5 @@
 #include "work.h"
 #include "ui_work.h"
-//#include "mytcpclient.h"
-//#include "mainwindow.h"
 
 Work::Work(QWidget *parent) :
     QMainWindow(parent),
@@ -12,11 +10,7 @@ Work::Work(QWidget *parent) :
     QScreen* screen = QApplication::screens().at(0);
     QSize size = screen->availableSize();
 
-    mytcpclient = myuser->clientAuth;
-
     //connect(mytcpclient, SIGNAL(writeTextHistory(QString)), SLOT(writeToQTextBrowser(QString)));
-
-    connect(mytcpclient, &MyTcpClient::writeTextHistory, this, &Work::writeToQTextBrowser);
 
     ui->frame->setGeometry(0,0, size.width(), size.height());
     ui->frame_2->setGeometry(0,0, size.width(), size.height());
@@ -50,7 +44,7 @@ Work::~Work()
 void Work::on_back_button_clicked()
 {
     hide();
-    emit signM();
+    emit signMy();
 }
 
 void Work::on_chat_button_clicked()
@@ -103,15 +97,19 @@ void Work::on_pushButton_3_clicked()
 
 void Work::setPalmalive(QString login, Functions *user)
 {
-    mylogin = login;
+    myuser = new Functions;
     myuser = user;
+    mytcpclient = myuser->clientAuth;
+    connect(mytcpclient, &MyTcpClient::writeTextHistory, this, &Work::writeToQTextBrowser);
+    mylogin = login;
     //emit signM();
 }
 
 void Work::writeToQTextBrowser(QString history)
 {
-    QTextDocument *doc = ui->textBrowser->document();
+    /*QTextDocument *doc = ui->textBrowser->document();
     QString text = doc->toHtml();
+    history += "abc";
 
-    ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + history + "</p>");
+    //ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + history + "</p>");*/
 }

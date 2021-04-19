@@ -246,8 +246,6 @@ release/moc_mainwindow.cpp: ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
-		../CCPS/functions.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/mytcpclient.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpSocket \
@@ -259,10 +257,19 @@ release/moc_mainwindow.cpp: ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray \
+		../CCPS/functions.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QScrollBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform \
 		../CCPS/registrwindow.h \
 		release/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
@@ -606,6 +613,26 @@ release/moc_work.cpp: ../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QScrollBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform \
+		../CCPS/functions.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
+		../CCPS/mytcpclient.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpSocket \
+		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray \
 		release/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/grish/Documents/ProjectsQt/Tankists/build-CCPS-Desktop_Qt_5_15_2_MinGW_64_bit_qt_qt5-Debug/release/moc_predefs.h -IC:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++ -IC:/Users/grish/Documents/ProjectsQt/Tankists/CCPS -IC:/Qt/5.15.2/mingw81_64/include -IC:/Qt/5.15.2/mingw81_64/include/QtWidgets -IC:/Qt/5.15.2/mingw81_64/include/QtGui -IC:/Qt/5.15.2/mingw81_64/include/QtANGLE -IC:/Qt/5.15.2/mingw81_64/include/QtNetwork -IC:/Qt/5.15.2/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\CCPS\work.h -o release\moc_work.cpp
@@ -865,8 +892,6 @@ release/main.o: ../CCPS/main.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
-		../CCPS/functions.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/mytcpclient.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpSocket \
@@ -878,10 +903,19 @@ release/main.o: ../CCPS/main.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray \
+		../CCPS/functions.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QScrollBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform \
 		../CCPS/registrwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
@@ -999,8 +1033,6 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
-		../CCPS/functions.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/mytcpclient.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpSocket \
@@ -1012,41 +1044,12 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray \
+		../CCPS/functions.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QScrollBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
-		../CCPS/registrwindow.h \
-		ui_mainwindow.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPixmap \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
@@ -1054,6 +1057,19 @@ release/mainwindow.o: ../CCPS/mainwindow.cpp ../CCPS/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform \
+		../CCPS/registrwindow.h \
+		ui_mainwindow.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QPixmap \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreenOrientationChangeEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\CCPS\mainwindow.cpp
 
@@ -1280,54 +1296,21 @@ release/registrwindow.o: ../CCPS/registrwindow.cpp ../CCPS/registrwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtGui/qicon.h \
 		ui_registrwindow.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QComboBox \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qvalidator.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qslider.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstyle.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qpen.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
 		../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QScrollBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollbar.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform \
 		../CCPS/functions.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/mytcpclient.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpSocket \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpsocket.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
@@ -1336,14 +1319,7 @@ release/registrwindow.o: ../CCPS/registrwindow.cpp ../CCPS/registrwindow.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\registrwindow.o ..\CCPS\registrwindow.cpp
 
 release/work.o: ../CCPS/work.cpp ../CCPS/work.h \
@@ -1456,39 +1432,17 @@ release/work.o: ../CCPS/work.cpp ../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QScrollBar \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qscrollbar.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractslider.h \
-		ui_work.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QApplication \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qeventloop.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qguiapplication.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QGridLayout \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayout.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMenuBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmenu.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
-		../CCPS/mainwindow.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
+		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform \
 		../CCPS/functions.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		../CCPS/mytcpclient.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QObject \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpSocket \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpsocket.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
@@ -1498,14 +1452,7 @@ release/work.o: ../CCPS/work.cpp ../CCPS/work.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QByteArray \
-		../CCPS/registrwindow.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QScreen \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/qscreen.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QList \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QRect \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSize \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/QSizeF \
-		C:/Qt/5.15.2/mingw81_64/include/QtGui/QTransform
+		ui_work.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\work.o ..\CCPS\work.cpp
 
 release/qrc_resources.o: release/qrc_resources.cpp 
