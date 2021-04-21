@@ -20,7 +20,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     if(!mTcpServer->listen(QHostAddress::Any, 33333)){
         qDebug() << "server is not started";
     } else {
-        server_status=1;
+        server_status = 1;
         qDebug() << "server is started";
     }
 
@@ -32,8 +32,8 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     db.setHostName("127.0.0.1");
     db.setDatabaseName("qtccps");
     db.setUserName("postgres");
-    //db.setPassword("3803038030");
-    db.setPassword("676767");
+    db.setPassword("3803038030");
+    //db.setPassword("676767");
     db.open();
     QSqlQuery que;
     QString temp,temp2;

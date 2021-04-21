@@ -92,24 +92,49 @@ void Work::on_pushButton_3_clicked()
     Msg.setText(text);
     Msg.exec();*/
 
-    ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + message + "</p>");
+    //ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + message + "</p>");
 }
 
 void Work::setPalmalive(QString login, Functions *user)
 {
-    myuser = new Functions;
-    myuser = user;
+    myuser = new Functions(user->clientAuth);
     mytcpclient = myuser->clientAuth;
+
     connect(mytcpclient, &MyTcpClient::writeTextHistory, this, &Work::writeToQTextBrowser);
+
     mylogin = login;
     //emit signM();
 }
 
 void Work::writeToQTextBrowser(QString history)
 {
-    /*QTextDocument *doc = ui->textBrowser->document();
-    QString text = doc->toHtml();
-    history += "abc";
+    QTextDocument *doc;
+    QString html;
 
-    //ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + history + "</p>");*/
+    std::string text = history.toStdString();
+    QString message;
+    QString login;
+    int pos;
+
+    while (history != "")
+    {
+        doc = ui->textBrowser->document();
+        html = doc->toHtml();
+
+        pos = text.find("&");
+        text.erase(0, pos + 1);
+        pos = text.find("&");
+        login = QString::fromStdString(text.substr(0, pos));
+        text.erase(0, pos + 1);
+        pos = text.find("&");
+        message = QString::fromStdString(text.substr(0, pos));
+        text.erase(0, pos + 1);
+
+        if (mylogin == login)
+            ui->textBrowser->setText(html + "<h6 align = \"right\">" + login + "</h6>" + "<p align=\"right\">" + message + "</p>");
+        else
+            ui->textBrowser->setText(html + "<h6 align = \"left\">" + login + "</h6>" + "<p align=\"left\">" + message + "</p>");
+    }
+
+    //ui->textBrowser->setText(text + "<h6 align = \"right\">" + mylogin + "</h6>" + "<p align=\"right\">" + history + "</p>");
 }

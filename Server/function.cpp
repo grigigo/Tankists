@@ -85,7 +85,7 @@ void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients, QTcpSock
 
     chatName += "_chat.txt";
     std::ofstream fout(chatName, std::ios::app);
-    fout << "&" << login << "&" << message;
+    fout << "&" << login << "&" << message << "&";
     fout.close();
 
     send_message(chatName, SClients, clientSocket);
@@ -106,7 +106,6 @@ void send_history(std::string chatName, QTcpSocket *clientSocket)
         text.append(qline.toUtf8());
     }*/
     text.append(QString::fromStdString(line).toUtf8());
-    clientSocket->write(text);
     clientSocket->write(text);
 
     fin.close();
