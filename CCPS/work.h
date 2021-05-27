@@ -6,6 +6,8 @@
 #include <fstream>
 #include <QScreen>
 #include "functions.h"
+#include <QFile>
+#include <QDate>
 
 namespace Ui {
 class Work;
@@ -21,6 +23,11 @@ public:
     QString mylogin;
     Functions *myuser;
     MyTcpClient *mytcpclient;
+    QFile file;
+    QDate fromdate;
+    QDate todate;
+    std::string todate_s;
+    std::string fromdate_s;
 
 public slots:
     void setPalmalive(QString login, Functions *user);
@@ -40,6 +47,26 @@ private slots:
     void on_pushButton_3_clicked();
 
     void writeToQTextBrowser(QString history);
+
+    void on_note_button_clicked();
+
+    void on_holiday_button_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_holiday_button_2_clicked();
+
+    void on_holiday_button_3_clicked();
+
+    void on_holiday_button_4_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_holiday_button_5_clicked();
 
 private:
     Ui::Work *ui;

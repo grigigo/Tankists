@@ -77,7 +77,7 @@ void MyTcpServer::slotServerRead(){
 
         if (code == "message")
         {
-            push_to_file(message, SClients, clientSocket);
+            push_to_file(message, SClients);
         }
         else if (code == "auth")
         {

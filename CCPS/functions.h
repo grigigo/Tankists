@@ -23,7 +23,8 @@ public:
     bool registration(QString login, QString password);//регистрация*/
 
     void chat_history_request(QString chatName);
+
+    void calendar(QString message,std::string fromdate,std::string todate);
+
 };
-
-
 #endif // FUNCTIONS_H

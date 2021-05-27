@@ -48,54 +48,51 @@ void registration(std::string message, QTcpSocket *clientSocket, QMap<std::strin
     clientSocket->write("YES");
 }
 
-void send_message(std::string chatName, QMap<int,QTcpSocket *> SClients, QTcpSocket *clientSocket) // отправка файла всем
+void send_message(std::string chatName, std::string message, QMap<int,QTcpSocket *> SClients) // отправка файла всем
 {
-    std::string line = "";
+    QByteArray text = "new_message&";
+    /*std::string line = "";
     QString qline = "";
-    QByteArray text = "";
     chatName += "_chat.txt";
-    std::ifstream fin(chatName);
+    std::ifstream fin(chatName);*/
 
     QMap<int,QTcpSocket *> :: iterator it = SClients.begin();
 
-    while (getline(fin, line)) {
+    /*while (getline(fin, line)) {
         QString qline = QString::fromStdString(line);
         text.append(qline.toUtf8());
-    }
+    }*/
+
+    text.append(QString::fromStdString(message).toUtf8());
 
     for (; it != SClients.end(); ++it)
     {
-        if (it.value() != clientSocket)
-            it.value()->write(text);
+        it.value()->write(text);
         qDebug() << it.value();
     }
 
-    fin.close();
+    //fin.close();
 }
 
-void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients, QTcpSocket *clientSocket) // запись в файл
+void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients) // запись в файл
 {
     int pos = message.find("&");
     std::string chatName = message.substr(0, pos);
-    message.erase(0, pos + 1);
-
-    pos = message.find("&");
-    std::string login = message.substr(0, pos);
-    message.erase(0, pos + 1);
+    message.erase(0, pos);
 
     chatName += "_chat.txt";
     std::ofstream fout(chatName, std::ios::app);
-    fout << "&" << login << "&" << message << "&";
+    fout << message;
     fout.close();
 
-    send_message(chatName, SClients, clientSocket);
+    send_message(chatName, message, SClients);
 }
 
 void send_history(std::string chatName, QTcpSocket *clientSocket)
 {
     std::string line = "";
     QString qline = "";
-    QByteArray text = "";
+    QByteArray text = "chat_history&";
     chatName += "_chat.txt";
     std::ifstream fin(chatName);
 

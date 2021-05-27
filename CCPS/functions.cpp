@@ -39,3 +39,9 @@ void Functions::chat_history_request(QString chatName)
     QString request = "history&" + chatName;
     clientAuth->slot_send_to_server(request);
 }
+
+void Functions::calendar(QString login,std::string fromdate,std::string todate)
+{
+    QString request = "calendar&"+ login +"&" + QString::fromStdString(fromdate)+"&"+QString::fromStdString(todate);
+    clientAuth->slot_send_to_server(request);
+}

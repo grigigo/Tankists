@@ -4,7 +4,7 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {
     client_socket = new QTcpSocket(this);
     client_socket->connectToHost("127.0.0.1", 33333);
-    //client_socket->connectToHost("192.168.137.1", 33333);
+   // client_socket->connectToHost("192.168.137.1", 33333);
     connect (client_socket, SIGNAL(connected()), SLOT(slot_connected()));
     connect (client_socket, SIGNAL(readyRead()), SLOT(slot_readyRead()));
 }
@@ -31,10 +31,6 @@ void MyTcpClient::slot_readyRead() {
         message += array;
     }
 
-    QMessageBox Msg;
-    Msg.setText("read " + message);
-    Msg.exec();
-
     std::string code = "";
     std::string text = message.toStdString();
 
@@ -59,6 +55,17 @@ void MyTcpClient::slot_readyRead() {
         message = QString::fromStdString(text);
         emit writeTextHistory(message);
     }
+    else if (code == "new_message")
+    {
+        message = QString::fromStdString(text);
+        emit writeTextHistory(message);
+    }
+    else if (code == "calendar")
+    {
+        message = QString::fromStdString(text);
+
+    }
+
 
     //return message;
 }

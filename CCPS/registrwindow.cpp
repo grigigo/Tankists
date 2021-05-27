@@ -18,8 +18,6 @@ RegistrWindow::RegistrWindow(QWidget *parent) :
 
     ui->password_1->setGeometry(size.width() * 0.15, size.height() * 0.4, size.width() * 0.7, size.height() * 0.05);
     ui->password_edit->setGeometry(size.width() * 0.15, size.height() * 0.45, size.width() * 0.7, size.height() * 0.05);
-
-    ui->comboBox->setGeometry(size.width() * 0.15, size.height() * 0.55, size.width() * 0.7, size.height() * 0.05);
 }
 
 RegistrWindow::~RegistrWindow()
