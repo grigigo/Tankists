@@ -17,5 +17,15 @@ void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients); // по
 
 void send_history(std::string message, QTcpSocket *clientSocket);
 
+void send_history(std::string message, QTcpSocket *clientSocket);
+
+void calendar(std::string message);
+
+void date_request(std::string message, QTcpSocket *clientSocket);
+
+void note_request(std::string message, QTcpSocket *clientSocket);
+
+void send_note(std::string message, QTcpSocket *clientSocket);
+
 #endif // FUNCTION_H
 //  select login from users join users_chats on users_chats.id_user = users.id_user where id_chat = 1;
