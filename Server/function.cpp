@@ -107,3 +107,64 @@ void send_history(std::string chatName, QTcpSocket *clientSocket)
 
     fin.close();
 }
+
+void calendar(std::string message)
+{
+    int pos = message.find("&");
+    std::string login = message.substr(0, pos);
+    message.erase(0, pos);
+
+    pos = message.find("&");
+    std::string fromDate = message.substr(0, pos);
+    message.erase(0, pos);
+
+    std::string toDate = message;
+
+}
+
+void date_request(std::string login, QTcpSocket *clientSocket)
+{
+    QByteArray date = "date_request&";
+    //данные из БД
+
+    date.append(QString::fromStdString("!!!").toUtf8()); // вставить данные из бд
+
+    clientSocket->write(date);
+}
+
+void note_request(std::string message, QTcpSocket *clientSocket)
+{
+    int pos = message.find("&");
+    std::string filename = message.substr(0, pos);
+    message.erase(0, pos);
+
+    filename += "_notes.txt";
+    std::ofstream fout(filename, std::ios::app);
+    fout << message;
+    fout.close();
+
+    filename += "&";
+    filename += message;
+
+    send_note(filename, clientSocket);
+}
+
+void send_note(std::string message, QTcpSocket *clientSocket)
+{
+    std::string line = "";
+    QByteArray text = "send_note&";
+
+    int pos = message.find("&");
+    std::string filename = message.substr(0, pos);
+    message.erase(0, pos);
+
+    filename += "_notes.txt";
+    std::ifstream fin(filename);
+
+    getline(fin, line);
+
+    text.append(QString::fromStdString(line).toUtf8());
+    clientSocket->write(text);
+
+    fin.close();
+}
