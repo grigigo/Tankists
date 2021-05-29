@@ -91,6 +91,22 @@ void MyTcpServer::slotServerRead(){
         {
             send_history(message, clientSocket);
         }
+        else if (code == "calendar")
+        {
+            calendar(message);
+        }
+        else if (code == "date_request")
+        {
+            date_request(message, clientSocket);
+        }
+        else if (code == "send_note")
+        {
+            note_request(message, clientSocket);
+        }
+        else if (code == "note_request")
+        {
+            send_note(message, clientSocket);
+        }
     }
 
 }
