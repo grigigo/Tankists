@@ -26,5 +26,7 @@ public:
 
     void calendar(QString message,std::string fromdate,std::string todate);
 
+    void date_request(QString login);
+
 };
 #endif // FUNCTIONS_H

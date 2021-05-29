@@ -45,3 +45,9 @@ void Functions::calendar(QString login,std::string fromdate,std::string todate)
     QString request = "calendar&"+ login +"&" + QString::fromStdString(fromdate)+"&"+QString::fromStdString(todate);
     clientAuth->slot_send_to_server(request);
 }
+
+void Functions::date_request(QString login)
+{
+    QString request = "date_request&" + login;
+    clientAuth->slot_send_to_server(request);
+}

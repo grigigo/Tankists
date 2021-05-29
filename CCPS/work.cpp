@@ -166,21 +166,46 @@ void Work::on_note_button_clicked()
 
     ui->frame3->setVisible(false);
     ui->frame1->setVisible(true);
-    QString text;
-    //std::ifstream fin(mylogin.toStdString() + "_file.txt");
-    //getline(fin, text);
-    //fin.close();
-    file.open(QIODevice::ReadWrite );
-    QTextStream in(&file);
-    ui->textEdit_2->setText("12345");
-    in >> text;
-    ui->textBrowser_2->setText(text);
+
+    connect(mytcpclient, SIGNAL(notes(QString)), SLOT(writeNote(QString)));
+    mytcpclient->slot_send_to_server("note_request&" + mylogin);
+}
+
+void Work::writeNote(QString note)
+{
+    QTextDocument *doc;
+    QString html;
+
+    std::string text = note.toStdString();
+    QString message;
+    int pos;
+
+    while (text != "")
+    {
+        doc = ui->textBrowser->document();
+        html = doc->toHtml();
+
+        pos = text.find("&");
+        message = QString::fromStdString(text.substr(0, pos));
+
+        text.erase(0, pos + 1);
+        ui->textBrowser_2->setText(html + message);
+    }
 }
 
 void Work::on_holiday_button_clicked()
 {
     ui->frame3->setVisible(false);
     ui->frame2->setVisible(true);
+    myuser->date_request(mylogin);
+
+    connect(mytcpclient, SIGNAL(dates(QString)), SLOT(fromToDates(QString)));
+}
+
+void Work::fromToDates(QString message)
+{
+    ui->lineEdit_2->setText("");
+    ui->lineEdit_5->setText("");
 }
 
 void Work::on_pushButton_4_clicked()
@@ -198,21 +223,10 @@ void Work::on_pushButton_5_clicked()
 
 void Work::on_pushButton_6_clicked()
 {
-    //std::ofstream fout(mylogin.toStdString() + "_file.txt");
     QString message = ui->textEdit_2->text();
-    QTextDocument *doc;
-    QString html;
-    QString text;
-    doc = ui->textBrowser_2->document();
-    html = doc->toHtml();
-    ui->textBrowser_2->setText(html+message);
+
     ui->textEdit_2->setText("");
-    QTextStream out(&file);//поток для записи текста
-    text = html + message;
-    out << text;
-    /*std::string text = html.toStdString() + message.toStdString();
-    fout << text;
-    fout.close();*/
+    mytcpclient->slot_send_to_server("send_note&" + mylogin + "&" + message + "&");
 }
 
 void Work::on_holiday_button_2_clicked()
@@ -262,8 +276,7 @@ void Work::on_pushButton_7_clicked()
 
 void Work::on_holiday_button_5_clicked()
 {
-    QString temp;
-    calendar(temp, fromdate_s, todate_s);
+    myuser->calendar(mylogin, fromdate_s, todate_s);
     ui->calendarWidget->setVisible(true);
     ui->lineEdit_3->setVisible(true);
     ui->lineEdit_6->setVisible(true);
