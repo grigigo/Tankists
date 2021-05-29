@@ -60,12 +60,16 @@ void MyTcpClient::slot_readyRead() {
         message = QString::fromStdString(text);
         emit writeTextHistory(message);
     }
-    else if (code == "calendar")
+    else if (code == "date_request")
     {
         message = QString::fromStdString(text);
-
+        emit dates(message);
     }
-
+    else if (code == "send_note")
+    {
+        message = QString::fromStdString(text);
+        emit notes(message);
+    }
 
     //return message;
 }

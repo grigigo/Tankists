@@ -28,6 +28,8 @@ signals:
     void signAuthYes();
     void signAuthNope();
     void writeTextHistory(QString history);
+    void dates(QString date);
+    void notes(QString note);
 };
 
 #endif // MYTCPCLIENT_H

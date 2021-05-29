@@ -68,6 +68,10 @@ private slots:
 
     void on_holiday_button_5_clicked();
 
+    void fromToDates(QString message);
+
+    void writeNote(QString note);
+
 private:
     Ui::Work *ui;
 
