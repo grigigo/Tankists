@@ -1,7 +1,6 @@
 #include "function.h"
 #include "mytcpserver.h"
 
-
 void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> map)
 {
     int pos = message.find("&");
@@ -51,17 +50,8 @@ void registration(std::string message, QTcpSocket *clientSocket, QMap<std::strin
 void send_message(std::string chatName, std::string message, QMap<int,QTcpSocket *> SClients) // отправка файла всем
 {
     QByteArray text = "new_message&";
-    /*std::string line = "";
-    QString qline = "";
-    chatName += "_chat.txt";
-    std::ifstream fin(chatName);*/
 
     QMap<int,QTcpSocket *> :: iterator it = SClients.begin();
-
-    /*while (getline(fin, line)) {
-        QString qline = QString::fromStdString(line);
-        text.append(qline.toUtf8());
-    }*/
 
     text.append(QString::fromStdString(message).toUtf8());
 
@@ -70,8 +60,6 @@ void send_message(std::string chatName, std::string message, QMap<int,QTcpSocket
         it.value()->write(text);
         qDebug() << it.value();
     }
-
-    //fin.close();
 }
 
 void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients) // запись в файл
@@ -97,11 +85,83 @@ void send_history(std::string chatName, QTcpSocket *clientSocket)
     std::ifstream fin(chatName);
 
     getline(fin, line);
-    /*while (getline(fin, line)) {
-        qDebug() << QString::fromStdString(line);
-        qline = QString::fromStdString(line);
-        text.append(qline.toUtf8());
-    }*/
+
+    text.append(QString::fromStdString(line).toUtf8());
+    clientSocket->write(text);
+
+    fin.close();
+}
+
+void calendar(std::string message)
+{
+    int pos = message.find("&");
+    std::string login = message.substr(0, pos);
+    message.erase(0, pos+1);
+
+    pos = message.find("&");
+    std::string fromDate = message.substr(0, pos);
+    message.erase(0, pos+1);
+
+    std::string toDate = message;
+
+    QSqlQuery que;
+    std::string temp;
+    temp = "update users set last_holiday_end = '"+fromDate+"-"+toDate+"' where login='"+login+"';";
+    que.exec(QString::fromStdString(temp));
+
+}
+
+void date_request(std::string login, QTcpSocket *clientSocket)
+{
+    QByteArray date = "date_request&";
+    QSqlQuery que;
+    std::string temp;
+    QString fromto,days;
+    temp = "select * from users where login='"+login+"';";
+    que.exec(QString::fromStdString(temp));
+    while (que.next())
+    {
+        fromto = que.value(4).toString();
+        days = que.value(5).toString();
+        fromto+="&"+days;
+    }
+
+    date.append(fromto.toUtf8()); // вставить данные из бд
+
+    clientSocket->write(date);
+}
+
+void note_request(std::string message, QTcpSocket *clientSocket)
+{
+    int pos = message.find("&");
+    std::string filename = message.substr(0, pos);
+    message.erase(0, pos);
+
+    filename += "_notes.txt";
+    std::ofstream fout(filename, std::ios::app);
+    fout << message;
+    fout.close();
+
+    filename += "&";
+    filename += message;
+
+    send_note(filename, clientSocket);
+}
+
+void send_note(std::string message, QTcpSocket *clientSocket)
+{
+    std::string line = "";
+    QByteArray text = "send_note&";
+
+    int pos = message.find("&");
+    std::string filename = message.substr(0, pos);
+    message.erase(0, pos);
+
+    filename += "_notes.txt";
+    std::ifstream fin(filename);
+
+    getline(fin, line);
+
     text.append(QString::fromStdString(line).toUtf8());
     clientSocket->write(text);
 

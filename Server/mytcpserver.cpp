@@ -37,8 +37,7 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     db.open();
     QSqlQuery que;
     QString temp,temp2;
-    que.exec("select * from users;");
-
+   que.exec("select * from users");
     while (que.next())
     {
         temp = que.value(1).toString();
@@ -90,6 +89,22 @@ void MyTcpServer::slotServerRead(){
         else if (code == "history")
         {
             send_history(message, clientSocket);
+        }
+        else if (code == "calendar")
+        {
+            calendar(message);
+        }
+        else if (code == "date_request")
+        {
+            date_request(message, clientSocket);
+        }
+        else if (code == "send_note")
+        {
+            note_request(message, clientSocket);
+        }
+        else if (code == "note_request")
+        {
+            send_note(message, clientSocket);
         }
     }
 
