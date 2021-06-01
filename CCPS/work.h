@@ -28,6 +28,7 @@ public:
     QDate todate;
     std::string todate_s;
     std::string fromdate_s;
+    int days;
 
 public slots:
     void setPalmalive(QString login, Functions *user);

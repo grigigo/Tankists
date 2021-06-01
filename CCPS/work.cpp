@@ -12,30 +12,21 @@ Work::Work(QWidget *parent) :
     QFile file;
     QString path (QApplication::applicationDirPath()+ "/" + mylogin + "filename.txt");
     file.setFileName(path);
-    ui->frame->setGeometry(0,0, size.width(), size.height());
     ui->frame_2->setGeometry(0,0, size.width(), size.height());
     ui->frame1->setGeometry(0,0, size.width(), size.height());
     ui->frame2->setGeometry(0,0, size.width(), size.height());
     ui->frame3->setGeometry(0,0, size.width(), size.height());
     ui->frame4->setGeometry(0,0, size.width(), size.height());
-    ui->frame->setVisible(false);
     ui->frame_2->setVisible(false);
     ui->frame1->setVisible(false);
     ui->frame2->setVisible(false);
     ui->frame4->setVisible(false);
-    ui->calendarWidget->setMaximumDate(QDate(QDate::currentDate().addYears(1)));
-    ui->calendarWidget->setMinimumDate(QDate::currentDate());
     ui->holiday_button_5->setVisible(false);
 
      ui->lineEdit_5->setText(""); /// Взять из бд последнюю дату через сервер
-     if ( ui->lineEdit_5->text()!="")
-     ui->lineEdit_2->setText(""); //
 
 
-    // Чаты
-    ui->pushButton->setGeometry(size.width() * 0, size.height() * 0, size.height() * 0.1, size.height() * 0.1);
-    ui->depart_chat_button->setGeometry(size.width() * 0.1, size.height() * 0.15, size.width() * 0.8, size.height() * 0.07);
-    // Чат
+   // Чат
     ui->textBrowser->setGeometry(size.width() * 0, size.height() * 0.15, size.width() * 1, size.height() * 0.7);
     ui->pushButton_3->setGeometry(size.width() * 0.78, size.height() * 0.9, size.width() * 0.17, size.height() * 0.07);
     ui->pushButton_2->setGeometry(size.width() * 0, size.height() * 0, size.height() * 0.1, size.height() * 0.1);
@@ -51,15 +42,11 @@ Work::Work(QWidget *parent) :
     ui->back_button->setGeometry(size.width() * 0.1, size.height() * 0.9, size.width() * 0.8, size.height() * 0.07);
     ui->chat_button->setGeometry(size.width() * 0.1, size.height() * 0.2, size.width() * 0.8, size.height() * 0.07);
     /// отпуск
-    ui->lineEdit->setGeometry(size.width() * 0.1, size.height() * 0.15, size.width() * 0.8, size.height() * 0.07);
-    ui->lineEdit_2->setGeometry(size.width() * 0.1, size.height() * 0.25, size.width() * 0.8, size.height() * 0.07);
     ui->lineEdit_4->setGeometry(size.width() * 0.1, size.height() * 0.35, size.width() * 0.8, size.height() * 0.07);
     ui->lineEdit_5->setGeometry(size.width() * 0.1, size.height() * 0.45, size.width() * 0.8, size.height() * 0.07);
     ui->holiday_button_2->setGeometry(size.width() * 0.1, size.height() * 0.65, size.width() * 0.8, size.height() * 0.07);
     ui->pushButton_5->setGeometry(size.width() * 0, size.height() * 0, size.height() * 0.1, size.height() * 0.1);
     /// запланировать отпуск
-    ui->lineEdit_3->setGeometry(size.width() * 0.1, size.height() * 0.15, size.width() * 0.8, size.height() * 0.07);
-    ui->lineEdit_6->setGeometry(size.width() * 0.1, size.height() * 0.25, size.width() * 0.8, size.height() * 0.07);
     ui->calendarWidget->setGeometry(size.width() * 0.1, size.height() * 0.35, size.width() * 0.8, size.height() * 0.4);
     ui->holiday_button_3->setGeometry(size.width() * 0.1, size.height() * 0.8, size.width() * 0.8, size.height() * 0.07);
     ui->pushButton_7->setGeometry(size.width() * 0, size.height() * 0, size.height() * 0.1, size.height() * 0.1);
@@ -88,18 +75,6 @@ void Work::on_back_button_clicked()
 void Work::on_chat_button_clicked()
 {
     ui->frame3->setVisible(false);
-    ui->frame->setVisible(true);
-}
-
-void Work::on_pushButton_clicked()
-{
-    ui->frame->setVisible(false);
-    ui->frame3->setVisible(true);
-}
-
-void Work::on_depart_chat_button_clicked()
-{
-    ui->frame->setVisible(false);
     ui->frame_2->setVisible(true);
     ui->textBrowser->setText("");
 
@@ -110,7 +85,7 @@ void Work::on_pushButton_2_clicked()
 {
     ui->frame_2 ->setVisible(false);
     ui->textBrowser->setText("");
-    ui->frame->setVisible(true);
+    ui->frame3->setVisible(true);
 }
 
 void Work::on_pushButton_3_clicked()
@@ -167,8 +142,8 @@ void Work::on_note_button_clicked()
     ui->frame3->setVisible(false);
     ui->frame1->setVisible(true);
 
-    connect(mytcpclient, SIGNAL(notes(QString)), SLOT(writeNote(QString)));
     mytcpclient->slot_send_to_server("note_request&" + mylogin);
+    connect(mytcpclient, SIGNAL(notes(QString)), SLOT(writeNote(QString)));
 }
 
 void Work::writeNote(QString note)
@@ -182,7 +157,7 @@ void Work::writeNote(QString note)
 
     while (text != "")
     {
-        doc = ui->textBrowser->document();
+        doc = ui->textBrowser_2->document();
         html = doc->toHtml();
 
         pos = text.find("&");
@@ -204,8 +179,17 @@ void Work::on_holiday_button_clicked()
 
 void Work::fromToDates(QString message)
 {
-    ui->lineEdit_2->setText("");
-    ui->lineEdit_5->setText("");
+    std::string code,mess,fromto;
+    int pos;
+    mess=message.toStdString();
+    pos = mess.find("&");
+    code = mess.substr(0,pos);
+    mess.erase(0,pos+1);  // убрали даты
+    ui->lineEdit_5->setText(QString::fromStdString(code));
+    days=std::stoi(mess);
+
+    if (code!="")
+        ui->holiday_button_2->setVisible(false);
 }
 
 void Work::on_pushButton_4_clicked()
@@ -221,11 +205,9 @@ void Work::on_pushButton_5_clicked()
     ui->frame3->setVisible(true);
 }
 
-void Work::on_pushButton_6_clicked()
+void Work::on_pushButton_6_clicked() // починить
 {
-    QString message = ui->textEdit_2->text();
-
-    ui->textEdit_2->setText("");
+    QString message = ui->textEdit->text();
     mytcpclient->slot_send_to_server("send_note&" + mylogin + "&" + message + "&");
 }
 
@@ -235,6 +217,8 @@ void Work::on_holiday_button_2_clicked()
     ui->frame4->setVisible(true);
     ui->frame2->setVisible(false);
     ui->holiday_button_4->setVisible(true);
+    ui->calendarWidget->setMaximumDate(QDate(QDate::currentDate().addYears(1)));
+    ui->calendarWidget->setMinimumDate(QDate::currentDate());
 }
 
 void Work::on_holiday_button_3_clicked()
@@ -248,8 +232,6 @@ void Work::on_holiday_button_3_clicked()
     ui->holiday_button_3->setVisible(false);
     ui->holiday_button_5->setVisible(true);
     ui->calendarWidget->setVisible(false);
-    ui->lineEdit_3->setVisible(false);
-    ui->lineEdit_6->setVisible(false);
     ui->lineEdit_7->setVisible(true);
 
 }
@@ -261,13 +243,13 @@ void Work::on_holiday_button_4_clicked()
     fromdate= ui->calendarWidget->selectedDate();
     ui->holiday_button_4->setVisible(false);
     ui->holiday_button_3->setVisible(true);
+    ui->calendarWidget->setMaximumDate(fromdate.addDays(days-1));
+    ui->calendarWidget->setMinimumDate(fromdate);
 }
 
 void Work::on_pushButton_7_clicked()
 {
     ui->calendarWidget->setVisible(true);
-    ui->lineEdit_3->setVisible(true);
-    ui->lineEdit_6->setVisible(true);
     ui->frame4->setVisible(false);
     ui->frame_2->setVisible(false);
     ui->frame3->setVisible(true);
@@ -278,10 +260,8 @@ void Work::on_holiday_button_5_clicked()
 {
     myuser->calendar(mylogin, fromdate_s, todate_s);
     ui->calendarWidget->setVisible(true);
-    ui->lineEdit_3->setVisible(true);
-    ui->lineEdit_6->setVisible(true);
     ui->frame4->setVisible(false);
     ui->frame_2->setVisible(false);
     ui->frame3->setVisible(true);
-     ui->holiday_button_5->setVisible(false);
+    ui->holiday_button_5->setVisible(false);
 }

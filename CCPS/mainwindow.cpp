@@ -75,8 +75,8 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
 
     QString login = ui->login->text();
     QString password = ui->password->text();
-    this->close();     /// УДАЛИТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    work->show();
+ /*   this->close();     /// УДАЛИТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   work->show();*/
     user->authorize(login, password);
 }
 
