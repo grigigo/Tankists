@@ -2,6 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <QPixmap>
+#include <QScreen>
+#include <QApplication>
+#include <QScreenOrientationChangeEvent>
+#include "mytcpclient.h"
 #include "functions.h"
 #include "work.h"
 #include "registrwindow.h"
@@ -19,14 +25,18 @@ public:
     ~MainWindow();
     void qwerty();
 
-private slots:
+public slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
+    void onLoginYes();
+    void onLoginNope();
 
-private:
+public:
+    QString answer;
     Ui::MainWindow *ui;
     Work *work;
     RegistrWindow *registr;
+    MyTcpClient *mytcpclient;
+    Functions *user;
 };
 #endif // MAINWINDOW_H

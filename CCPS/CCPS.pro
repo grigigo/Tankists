@@ -1,4 +1,5 @@
 QT += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,12 +13,14 @@ SOURCES += \
     functions.cpp \
     main.cpp \
     mainwindow.cpp \
+    mytcpclient.cpp \
     registrwindow.cpp \
     work.cpp
 
 HEADERS += \
     functions.h \
     mainwindow.h \
+    mytcpclient.h \
     registrwindow.h \
     work.h
 

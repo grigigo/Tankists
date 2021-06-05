@@ -1,9 +1,32 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
+
 #include <string>
+#include <QString>
+#include "mytcpclient.h"
 
-bool authorize(std::string login, std::string password);//авторизация
+class Functions {
+private:
 
-bool registration(std::string login, std::string password);//регистрация
 
+public:
+    Functions(MyTcpClient *client);
+    Functions();
+    ~Functions();
+
+    MyTcpClient *clientAuth;
+
+    void authorize(QString login, QString password);//авторизация
+
+    void send_message(QString message);//Отправка сообщения
+
+    bool registration(QString login, QString password);//регистрация*/
+
+    void chat_history_request(QString chatName);
+
+    void calendar(QString message,std::string fromdate,std::string todate);
+
+    void date_request(QString login);
+
+};
 #endif // FUNCTIONS_H

@@ -1,10 +1,53 @@
 #include "functions.h"
 
-bool authorize(std::string login, std::string password)
-{
-    return ((login=="Tim" and password=="12345") or (login=="Gri" and password=="676767"));
+Functions::Functions() {
+    clientAuth = new MyTcpClient();
 }
-bool registration(std::string login, std::string password)
+
+Functions::Functions(MyTcpClient *client) {
+    clientAuth = client;
+}
+
+Functions::~Functions() {
+    clientAuth->slot_disconnected();
+}
+
+void Functions::authorize(QString login, QString password)
 {
-return (login.size()>3 and password.size()>3);
+    QString request = "auth&" + login + "&" + password;
+    clientAuth->slot_send_to_server(request);
+}
+
+
+
+bool Functions::registration(QString login, QString password)
+{
+    QString request = "reg&" + login + "&" + password;
+    clientAuth->slot_send_to_server(request);
+
+    return true;
+}
+
+void Functions::send_message(QString message)
+{
+    QString request = "message&" + message;
+    clientAuth->slot_send_to_server(request);
+}
+
+void Functions::chat_history_request(QString chatName)
+{
+    QString request = "history&" + chatName;
+    clientAuth->slot_send_to_server(request);
+}
+
+void Functions::calendar(QString login,std::string fromdate,std::string todate)
+{
+    QString request = "calendar&"+ login +"&" + QString::fromStdString(fromdate)+"&"+QString::fromStdString(todate);
+    clientAuth->slot_send_to_server(request);
+}
+
+void Functions::date_request(QString login)
+{
+    QString request = "date_request&" + login;
+    clientAuth->slot_send_to_server(request);
 }
