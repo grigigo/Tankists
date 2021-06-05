@@ -92,7 +92,7 @@ void send_history(std::string chatName, QTcpSocket *clientSocket)
     fin.close();
 }
 
-void calendar(std::string message)
+bool calendar(std::string message)
 {
     int pos = message.find("&");
     std::string login = message.substr(0, pos);
@@ -108,6 +108,7 @@ void calendar(std::string message)
     std::string temp;
     temp = "update users set last_holiday_end = '"+fromDate+"-"+toDate+"' where login='"+login+"';";
     que.exec(QString::fromStdString(temp));
+    return true;
 
 }
 

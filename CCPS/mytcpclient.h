@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTcpSocket>
-#include <QMessageBox>
+//#include <QMessageBox>
 #include <QByteArray>
 
 using namespace std;
