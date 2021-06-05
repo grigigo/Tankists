@@ -17,7 +17,7 @@ void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients); // по
 
 void send_history(std::string message, QTcpSocket *clientSocket);
 
-void calendar(std::string message);
+bool calendar(std::string message);
 
 void date_request(std::string message, QTcpSocket *clientSocket);
 
