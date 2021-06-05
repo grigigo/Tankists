@@ -131,36 +131,35 @@ void date_request(std::string login, QTcpSocket *clientSocket)
     clientSocket->write(date);
 }
 
-void note_request(std::string message, QTcpSocket *clientSocket)
+void send_note(std::string message, QTcpSocket *clientSocket)
 {
     int pos = message.find("&");
-    std::string filename = message.substr(0, pos);
-    message.erase(0, pos);
+    std::string login = message.substr(0, pos);
+    message.erase(0, pos + 1);
 
-    filename += "_notes.txt";
+    qDebug() << QString::fromStdString(message);
+
+    std::string filename = login + "_notes.txt";
     std::ofstream fout(filename, std::ios::app);
     fout << message;
     fout.close();
 
-    filename += "&";
-    filename += message;
-
-    send_note(filename, clientSocket);
+    note_request(login, clientSocket);
 }
 
-void send_note(std::string message, QTcpSocket *clientSocket)
+void note_request(std::string message, QTcpSocket *clientSocket)
 {
     std::string line = "";
-    QByteArray text = "send_note&";
+    QByteArray text = "note_request&";
 
-    int pos = message.find("&");
-    std::string filename = message.substr(0, pos);
-    message.erase(0, pos);
+    std::string filename = message;
 
     filename += "_notes.txt";
     std::ifstream fin(filename);
 
     getline(fin, line);
+
+    qDebug() << QString::fromStdString(line);
 
     text.append(QString::fromStdString(line).toUtf8());
     clientSocket->write(text);

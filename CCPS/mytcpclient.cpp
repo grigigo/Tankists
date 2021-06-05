@@ -65,7 +65,7 @@ void MyTcpClient::slot_readyRead() {
         message = QString::fromStdString(text);
         emit dates(message);
     }
-    else if (code == "send_note")
+    else if (code == "note_request")
     {
         message = QString::fromStdString(text);
         emit notes(message);

@@ -8,6 +8,7 @@
 #include "functions.h"
 #include <QFile>
 #include <QDate>
+#include <QDebug>
 
 namespace Ui {
 class Work;

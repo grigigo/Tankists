@@ -31,7 +31,7 @@ public slots:
     void onLoginYes();
     void onLoginNope();
 
-private:
+public:
     QString answer;
     Ui::MainWindow *ui;
     Work *work;

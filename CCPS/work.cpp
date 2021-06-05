@@ -151,9 +151,14 @@ void Work::writeNote(QString note)
     QTextDocument *doc;
     QString html;
 
+    qDebug() << "Заметка:";
+    qDebug() << note;
+
     std::string text = note.toStdString();
     QString message;
     int pos;
+
+    ui->textBrowser_2->setText("");
 
     while (text != "")
     {
@@ -207,7 +212,8 @@ void Work::on_pushButton_5_clicked()
 
 void Work::on_pushButton_6_clicked() // починить
 {
-    QString message = ui->textEdit->text();
+    QString message = ui->textEdit_2->text();
+    ui->textEdit_2->setText("");
     mytcpclient->slot_send_to_server("send_note&" + mylogin + "&" + message + "&");
 }
 

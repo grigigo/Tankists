@@ -100,11 +100,11 @@ void MyTcpServer::slotServerRead(){
         }
         else if (code == "send_note")
         {
-            note_request(message, clientSocket);
+            send_note(message, clientSocket);
         }
         else if (code == "note_request")
         {
-            send_note(message, clientSocket);
+            note_request(message, clientSocket);
         }
     }
 
