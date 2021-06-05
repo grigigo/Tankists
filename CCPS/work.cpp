@@ -68,6 +68,7 @@ Work::~Work()
 
 void Work::on_back_button_clicked()
 {
+    myuser->disconnect();
     hide();
     emit signMy();
 }
@@ -233,7 +234,7 @@ void Work::on_holiday_button_3_clicked()
     std::string temp;
     fromdate_s=std::to_string(fromdate.day())+"."+std::to_string(fromdate.month())+"."+std::to_string(fromdate.year());
     todate_s= std::to_string(todate.day())+"."+std::to_string(todate.month())+"."+std::to_string(todate.year());
-    temp = "Вы выбрали дату отпуска от "+ fromdate_s +" до " + todate_s;
+    temp = "Вы выбрали дату отпуска от" + fromdate_s + " до " + todate_s;
     ui->lineEdit_7->setText(QString::fromStdString((temp)));
     ui->holiday_button_3->setVisible(false);
     ui->holiday_button_5->setVisible(true);

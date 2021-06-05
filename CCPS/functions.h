@@ -28,5 +28,7 @@ public:
 
     void date_request(QString login);
 
+    void disconnect();
+
 };
 #endif // FUNCTIONS_H

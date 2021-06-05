@@ -13,14 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     work = new Work;
     registr = new RegistrWindow;
-    mytcpclient = new MyTcpClient;
 
     connect (work, &Work::signMy, this, &MainWindow::show);
     connect (registr, &RegistrWindow::signReg, this, &MainWindow::show);
-
-    connect (mytcpclient, &MyTcpClient::signAuthYes, this, &MainWindow::onLoginYes);
-    connect (mytcpclient, &MyTcpClient::signAuthNope, this, &MainWindow::onLoginNope);
-
 
     QScreen* screen = QApplication::screens().at(0);
     QSize size = screen->availableSize();
@@ -71,12 +66,15 @@ void MainWindow::onLoginNope()
 
 void MainWindow::on_pushButton_clicked()  // кнопка авторизация
 {
+    mytcpclient = new MyTcpClient;
     user = new Functions(mytcpclient);
+
+    connect (mytcpclient, &MyTcpClient::signAuthYes, this, &MainWindow::onLoginYes);
+    connect (mytcpclient, &MyTcpClient::signAuthNope, this, &MainWindow::onLoginNope);
 
     QString login = ui->login->text();
     QString password = ui->password->text();
- /*   this->close();     /// УДАЛИТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   work->show();*/
+
     user->authorize(login, password);
 }
 

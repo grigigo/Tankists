@@ -106,6 +106,10 @@ void MyTcpServer::slotServerRead(){
         {
             note_request(message, clientSocket);
         }
+        else if (code == "disconnect")
+        {
+            slotClientDisconnected();
+        }
     }
 
 }

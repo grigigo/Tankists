@@ -51,3 +51,9 @@ void Functions::date_request(QString login)
     QString request = "date_request&" + login;
     clientAuth->slot_send_to_server(request);
 }
+
+void Functions::disconnect()
+{
+    QString request = "disconnect&";
+    clientAuth->slot_disconnected();
+}
