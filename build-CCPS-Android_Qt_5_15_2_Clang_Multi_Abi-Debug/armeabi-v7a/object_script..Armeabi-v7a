@@ -1,0 +1,11 @@
+armeabi-v7a/functions.obj
+armeabi-v7a/main.obj
+armeabi-v7a/mainwindow.obj
+armeabi-v7a/mytcpclient.obj
+armeabi-v7a/registrwindow.obj
+armeabi-v7a/work.obj
+armeabi-v7a/qrc_resources.obj
+armeabi-v7a/moc_mainwindow.obj
+armeabi-v7a/moc_mytcpclient.obj
+armeabi-v7a/moc_registrwindow.obj
+armeabi-v7a/moc_work.obj

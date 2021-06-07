@@ -26,18 +26,17 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
 
     logPass[""] = "";
 
-    // лучший код на свете
-
     db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName("127.0.0.1");
+    db.setPort(5432);
+    db.setHostName("localhost");
     db.setDatabaseName("qtccps");
     db.setUserName("postgres");
-    db.setPassword("3803038030");
-    //db.setPassword("676767");
+    //db.setPassword("3803038030");
+    db.setPassword("676767");
     db.open();
     QSqlQuery que;
     QString temp,temp2;
-   que.exec("select * from users");
+    qDebug() << que.exec("select * from users");
     while (que.next())
     {
         temp = que.value(1).toString();
@@ -53,8 +52,8 @@ void MyTcpServer::slotNewConnection(){
         int idusersocs = (int)clientSocket->socketDescriptor();
         SClients[idusersocs] = clientSocket;
            SClients[idusersocs]->write("Hello!\n");
-           connect(SClients[idusersocs],&QTcpSocket::readyRead,this,&MyTcpServer::slotServerRead);
-           connect(SClients[idusersocs],&QTcpSocket::disconnected,this,&MyTcpServer::slotClientDisconnected);
+           connect(SClients[idusersocs], &QTcpSocket::readyRead, this, &MyTcpServer::slotServerRead);
+           connect(SClients[idusersocs], &QTcpSocket::disconnected, this, &MyTcpServer::slotClientDisconnected);
     }
 }
 
@@ -67,9 +66,10 @@ void MyTcpServer::slotServerRead(){
         std::string code = "";
         std::string message;
         message = array.toStdString();
+
         qDebug() << QString::fromStdString(message);
         qDebug() << clientSocket;
-        //
+
         int pos = message.find("&");
         code = message.substr(0,pos);
         message.erase(0,pos+1);
@@ -117,8 +117,10 @@ void MyTcpServer::slotServerRead(){
 void MyTcpServer::slotClientDisconnected(){
     QTcpSocket *clientSocket = (QTcpSocket*)sender();
     int id =(int)clientSocket->socketDescriptor();
+
     clientSocket->close();
     SClients.remove(id);
     //server_status--;
+
     qDebug()<<QString::fromUtf8("Client is disconnected /n");
 }

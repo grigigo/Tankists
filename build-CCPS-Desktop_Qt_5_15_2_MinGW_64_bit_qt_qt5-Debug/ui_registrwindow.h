@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -29,7 +28,6 @@ public:
     QPushButton *sign_up_button;
     QLineEdit *login_edit;
     QLineEdit *password_edit;
-    QComboBox *comboBox;
     QLabel *password_1;
     QPushButton *back_button;
     QLabel *login_1;
@@ -114,15 +112,6 @@ public:
         password_edit->setSizePolicy(sizePolicy);
         password_edit->setMinimumSize(QSize(0, 75));
         password_edit->setStyleSheet(QString::fromUtf8(""));
-        comboBox = new QComboBox(centralwidget);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(10, 453, 264, 75));
-        comboBox->setMinimumSize(QSize(0, 75));
-        comboBox->setFont(font);
-        comboBox->setStyleSheet(QString::fromUtf8(""));
         password_1 = new QLabel(centralwidget);
         password_1->setObjectName(QString::fromUtf8("password_1"));
         password_1->setGeometry(QRect(10, 208, 124, 45));
@@ -161,10 +150,6 @@ public:
     {
         RegistrWindow->setWindowTitle(QCoreApplication::translate("RegistrWindow", "MainWindow", nullptr));
         sign_up_button->setText(QCoreApplication::translate("RegistrWindow", "\320\227\320\260\321\200\320\265\320\263\320\270\321\201\321\202\321\200\320\270\321\200\320\276\320\262\320\260\321\202\321\214\321\201\321\217", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("RegistrWindow", "\320\236\321\202\320\264\320\265\320\273 \320\277\321\200\320\276\320\264\320\260\320\266", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("RegistrWindow", "\320\236\321\202\320\264\320\265\320\273 \320\272\320\260\320\264\321\200\320\276\320\262", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("RegistrWindow", "\320\236\321\202\320\264\320\265\320\273 \320\277\321\200\320\276\320\264\321\203\320\272\321\202\320\260", nullptr));
-
         password_1->setText(QCoreApplication::translate("RegistrWindow", "<html><head/><body><p><span style=\" font-size:24pt;\">\320\237\320\260\321\200\320\276\320\273\321\214</span></p></body></html>", nullptr));
         back_button->setText(QCoreApplication::translate("RegistrWindow", "\320\235\320\260\320\267\320\260\320\264", nullptr));
         login_1->setText(QCoreApplication::translate("RegistrWindow", "<html><head/><body><p><span style=\" font-size:24pt;\">\320\233\320\276\320\263\320\270\320\275</span></p></body></html>", nullptr));

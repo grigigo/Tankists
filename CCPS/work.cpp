@@ -144,6 +144,7 @@ void Work::on_note_button_clicked()
     ui->frame1->setVisible(true);
 
     mytcpclient->slot_send_to_server("note_request&" + mylogin);
+
     connect(mytcpclient, SIGNAL(notes(QString)), SLOT(writeNote(QString)));
 }
 
@@ -185,16 +186,16 @@ void Work::on_holiday_button_clicked()
 
 void Work::fromToDates(QString message)
 {
-    std::string code,mess,fromto;
+    std::string code, mess, fromto;
     int pos;
-    mess=message.toStdString();
+    mess = message.toStdString();
     pos = mess.find("&");
-    code = mess.substr(0,pos);
-    mess.erase(0,pos+1);  // убрали даты
+    code = mess.substr(0, pos);
+    mess.erase(0, pos + 1);  // убрали даты
     ui->lineEdit_5->setText(QString::fromStdString(code));
-    days=std::stoi(mess);
+    days = std::stoi(mess);
 
-    if (code!="")
+    if (code != "")
         ui->holiday_button_2->setVisible(false);
 }
 
@@ -202,7 +203,6 @@ void Work::on_pushButton_4_clicked()
 {
     ui->frame1->setVisible(false);
     ui->frame3->setVisible(true);
-    file.close();
 }
 
 void Work::on_pushButton_5_clicked()

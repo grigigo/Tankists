@@ -189,30 +189,30 @@
                         "endOffsets": "427,318,195,526"
                     },
                     "to": {
-                        "startLines": "18,19,20,21",
+                        "startLines": "24,25,26,27",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "680,788,910,1022",
+                        "startOffsets": "1071,1179,1301,1413",
                         "endColumns": "107,121,111,97",
-                        "endOffsets": "783,905,1017,1115"
+                        "endOffsets": "1174,1296,1408,1506"
                     }
                 },
                 {
                     "source": "C:\\Users\\grish\\Documents\\ProjectsQt\\Tankists\\build-CCPS-Android_Qt_5_15_2_Clang_Multi_Abi-Debug\\android-build\\res\\values\\libs.xml",
                     "from": {
-                        "startLines": "9,21,13,2",
+                        "startLines": "9,26,13,2",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "301,648,360,57",
-                        "endLines": "11,23,19,4",
+                        "startOffsets": "301,909,360,57",
+                        "endLines": "11,29,24,4",
                         "endColumns": "12,12,12,12",
-                        "endOffsets": "352,817,640,170"
+                        "endOffsets": "352,1208,901,170"
                     },
                     "to": {
-                        "startLines": "2,5,8,15",
+                        "startLines": "2,5,9,21",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "55,109,281,564",
-                        "endLines": "4,7,14,17",
+                        "startOffsets": "55,109,411,955",
+                        "endLines": "4,8,20,23",
                         "endColumns": "12,12,12,12",
-                        "endOffsets": "104,276,559,675"
+                        "endOffsets": "104,406,950,1066"
                     }
                 }
             ]

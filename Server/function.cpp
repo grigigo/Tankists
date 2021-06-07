@@ -47,7 +47,7 @@ void registration(std::string message, QTcpSocket *clientSocket, QMap<std::strin
     clientSocket->write("YES");
 }
 
-void send_message(std::string chatName, std::string message, QMap<int,QTcpSocket *> SClients) // отправка файла всем
+void send_message(std::string message, QMap<int,QTcpSocket *> SClients) // отправка файла всем
 {
     QByteArray text = "new_message&";
 
@@ -73,7 +73,7 @@ void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients) // за�
     fout << message;
     fout.close();
 
-    send_message(chatName, message, SClients);
+    send_message(message, SClients);
 }
 
 void send_history(std::string chatName, QTcpSocket *clientSocket)
@@ -106,7 +106,7 @@ bool calendar(std::string message)
 
     QSqlQuery que;
     std::string temp;
-    temp = "update users set last_holiday_end = '"+fromDate+"-"+toDate+"' where login='"+login+"';";
+    temp = "update users set last_holiday_end = '" + fromDate + "-" + toDate + "' where login='" + login + "';";
     que.exec(QString::fromStdString(temp));
     return true;
 
@@ -117,17 +117,17 @@ void date_request(std::string login, QTcpSocket *clientSocket)
     QByteArray date = "date_request&";
     QSqlQuery que;
     std::string temp;
-    QString fromto,days;
-    temp = "select * from users where login='"+login+"';";
+    QString fromto, days;
+    temp = "select * from users where login = '" + login + "';";
     que.exec(QString::fromStdString(temp));
     while (que.next())
     {
         fromto = que.value(4).toString();
         days = que.value(5).toString();
-        fromto+="&"+days;
+        fromto += "&" + days;
     }
 
-    date.append(fromto.toUtf8()); // вставить данные из бд
+    date.append(fromto.toUtf8());
 
     clientSocket->write(date);
 }
@@ -159,8 +159,6 @@ void note_request(std::string message, QTcpSocket *clientSocket)
     std::ifstream fin(filename);
 
     getline(fin, line);
-
-    qDebug() << QString::fromStdString(line);
 
     text.append(QString::fromStdString(line).toUtf8());
     clientSocket->write(text);

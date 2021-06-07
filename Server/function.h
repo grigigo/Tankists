@@ -11,7 +11,7 @@ void authorize(std::string message, QTcpSocket *clientSocket, QMap<std::string, 
 
 void registration(std::string message, QTcpSocket *clientSocket, QMap<std::string, std::string> &map);//регистрация
 
-void send_message(std::string chatName, std::string message, QMap<int,QTcpSocket *> SClients); // отправка сообщения клиенту
+void send_message(std::string message, QMap<int,QTcpSocket *> SClients); // отправка сообщения клиенту
 
 void push_to_file(std::string message, QMap<int,QTcpSocket *> SClients); // получение сообщения
 

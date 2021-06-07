@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QTcpSocket>
-//#include <QMessageBox>
 #include <QByteArray>
 
 using namespace std;
@@ -21,7 +20,7 @@ private:
 public slots:
     void slot_connected();
     void slot_readyRead();
-    void slot_send_to_server(QString message); // отправляем msg=login+pass на сервер
+    void slot_send_to_server(QString message);
     void slot_disconnected();
 
 signals:
@@ -32,4 +31,4 @@ signals:
     void notes(QString note);
 };
 
-#endif // MYTCPCLIENT_H
+#endif

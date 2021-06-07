@@ -5,6 +5,7 @@
     </array>
     <array name="load_local_libs">
         <item>arm64-v8a;libplugins_platforms_qtforandroid_arm64-v8a.so:libplugins_bearer_qandroidbearer_arm64-v8a.so</item>
+        <item>armeabi-v7a;libplugins_platforms_qtforandroid_armeabi-v7a.so:libplugins_bearer_qandroidbearer_armeabi-v7a.so</item>
     </array>
     <array name="qt_libs">
         <item>arm64-v8a;c++_shared</item>
@@ -12,6 +13,11 @@
         <item>arm64-v8a;Qt5Gui_arm64-v8a</item>
         <item>arm64-v8a;Qt5Network_arm64-v8a</item>
         <item>arm64-v8a;Qt5Widgets_arm64-v8a</item>
+        <item>armeabi-v7a;c++_shared</item>
+        <item>armeabi-v7a;Qt5Core_armeabi-v7a</item>
+        <item>armeabi-v7a;Qt5Gui_armeabi-v7a</item>
+        <item>armeabi-v7a;Qt5Network_armeabi-v7a</item>
+        <item>armeabi-v7a;Qt5Widgets_armeabi-v7a</item>
     </array>
     <array name="qt_sources">
         <item>https://download.qt.io/ministro/android/qt5/qt-5.14</item>
