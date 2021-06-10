@@ -16,6 +16,9 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+/*!
+ * \brief Данный класс - начальный класс. Здесь происходит авторизация и переход к регистрации
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -23,7 +26,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void qwerty();
 
 public slots:
     void on_pushButton_clicked();
@@ -32,11 +34,10 @@ public slots:
     void onLoginNope();
 
 public:
-    QString answer;
-    Ui::MainWindow *ui;
-    Work *work;
-    RegistrWindow *registr;
-    MyTcpClient *mytcpclient;
-    Functions *user;
+    Ui::MainWindow *ui; ///< \brief Графический интерфейс MainWindow
+    Work *work; ///< \brief Объект класса Work
+    RegistrWindow *registr; ///< \brief Объект класса RegistrWindow
+    MyTcpClient *mytcpclient; ///< \brief Объект класса MaTcpClient
+    Functions *user; ///< \brief Объект класса Functions
 };
 #endif // MAINWINDOW_H

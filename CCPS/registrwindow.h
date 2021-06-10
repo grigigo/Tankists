@@ -9,6 +9,9 @@ namespace Ui {
 class RegistrWindow;
 }
 
+/*!
+ * \brief Данный класс предназначен для регистрации пользователя
+ */
 class RegistrWindow : public QMainWindow
 {
     Q_OBJECT
@@ -17,13 +20,10 @@ public:
     explicit RegistrWindow(QWidget *parent = nullptr);
     ~RegistrWindow();
 
-private slots:
+    Ui::RegistrWindow *ui; ///< \brief Графический интерфейс ReqistrWindow
+
     void on_back_button_clicked();
-
     void on_sign_up_button_clicked();
-
-private:
-    Ui::RegistrWindow *ui;
 
 signals:
     void signReg();

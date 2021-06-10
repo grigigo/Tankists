@@ -2,6 +2,9 @@
 #include <QDebug>
 #include <QCoreApplication>
 
+/*!
+ * \brief MyTcpServer::~MyTcpServer - деструктор класса
+ */
 MyTcpServer::~MyTcpServer()
 {
     foreach (int i, SClients.keys()){
@@ -13,6 +16,14 @@ MyTcpServer::~MyTcpServer()
     mTcpServer->close();
     db.close();
 }
+
+/*!
+ * \brief MyTcpServer::MyTcpServer - конструктор класса
+ * \details
+ * - Запускает сервер
+ * - Открывает базу данных и записывает данные в logPass
+ * \param parent - наследует QObject
+ */
 MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
     mTcpServer = new QTcpServer(this);
     connect(mTcpServer, &QTcpServer::newConnection, this, &MyTcpServer::slotNewConnection);
@@ -46,6 +57,12 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
 
 }
 
+/*!
+ * \brief MyTcpServer::slotNewConnection - подключение нового пользователя
+ * \details
+ * - Устанавливает соединение с новым пользователем
+ * - Записывает данные о пользователе в соответствующие переменные
+ */
 void MyTcpServer::slotNewConnection(){
     if(server_status == 1){
         QTcpSocket* clientSocket = mTcpServer->nextPendingConnection();
@@ -57,6 +74,13 @@ void MyTcpServer::slotNewConnection(){
     }
 }
 
+/*!
+ * \brief MyTcpServer::slotServerRead - считывает данные, отправленные с сервера
+ * \details
+ * - Считывает запрос
+ * - Выделяет из запроса код
+ * - Выполняет функцию, соответствующую этому коду
+ */
 void MyTcpServer::slotServerRead(){
     QTcpSocket *clientSocket = (QTcpSocket*)sender();
     //int id =(int)clientSocket->socketDescriptor();
@@ -74,36 +98,63 @@ void MyTcpServer::slotServerRead(){
         code = message.substr(0,pos);
         message.erase(0,pos+1);
 
+        //! \brief ***Функциии обработки запросов:***
+
         if (code == "message")
         {
+            /*!
+             * - **push_to_file** - добавляет сообщение в файл с историей сообщений чата
+             * - **send_message** - отправляет всем пользователям историю чата
+             */
             push_to_file(message, SClients);
         }
         else if (code == "auth")
         {
+            /*!
+             * - **authorize** - сравнивает пару login + password и отправляет ответ клиенту
+             */
             authorize(message, clientSocket, logPass);
         }
         else if (code == "reg")
         {
+            /*!
+             * - **registration** - сохраняет пару login + password в базу данных
+             */
             registration(message, clientSocket, logPass);
         }
         else if (code == "history")
         {
+            /*!
+             * - **send_history** - отправляет историю сообщений чата пользовтелю
+             */
             send_history(message, clientSocket);
         }
         else if (code == "calendar")
         {
+            /*!
+             * - **calendar** - записывает даты отпуска пользователя в базу данных
+             */
             calendar(message);
         }
         else if (code == "date_request")
         {
+            /*!
+             * - **date_request** - отправляет пользователю даты отпуска и кол-во оставшихся дней
+             */
             date_request(message, clientSocket);
         }
         else if (code == "send_note")
         {
+            /*!
+             * - **send_note** - сохраняет заметку пользователя
+             */
             send_note(message, clientSocket);
         }
         else if (code == "note_request")
         {
+            /*!
+             * - **note_request** - отправляет заметки пользователю
+             */
             note_request(message, clientSocket);
         }
         else if (code == "disconnect")
@@ -114,6 +165,9 @@ void MyTcpServer::slotServerRead(){
 
 }
 
+/*!
+ * \brief MyTcpServer::slotClientDisconnected - отсоединение пользователя
+ */
 void MyTcpServer::slotClientDisconnected(){
     QTcpSocket *clientSocket = (QTcpSocket*)sender();
     int id =(int)clientSocket->socketDescriptor();

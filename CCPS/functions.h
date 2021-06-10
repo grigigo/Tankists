@@ -5,29 +5,24 @@
 #include <QString>
 #include "mytcpclient.h"
 
+/*!
+ * \brief Данный класс предназначен для оформления и отправки запросов на сервер
+*/
 class Functions {
-private:
-
-
 public:
+
     Functions(MyTcpClient *client);
     Functions();
     ~Functions();
 
-    MyTcpClient *clientAuth;
+    MyTcpClient *clientAuth; ///< \brief Объект класса MyTcpClient \details Используется для отправки запросов на сервер
 
-    void authorize(QString login, QString password);//авторизация
-
-    void send_message(QString message);//Отправка сообщения
-
-    bool registration(QString login, QString password);//регистрация*/
-
+    void authorize(QString login, QString password);
+    void send_message(QString message);
+    bool registration(QString login, QString password);
     void chat_history_request(QString chatName);
-
     void calendar(QString message,std::string fromdate,std::string todate);
-
     void date_request(QString login);
-
     void disconnect();
 
 };

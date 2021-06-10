@@ -16,26 +16,28 @@
 #include <QSqlQuery>
 #include <QSqlField>
 
+/*!
+ * \brief Класс сервера. Здесь обрабатываются запросы, отправленные с клиента
+ */
 class MyTcpServer : public QObject
 {
     Q_OBJECT
 public:
     explicit MyTcpServer(QObject *parent = nullptr);
     ~MyTcpServer();
-    QTcpServer * mTcpServer;
-    int server_status;
-    QMap<int,QTcpSocket *> SClients;
-    QMap<std::string, std::string> logPass;
-    QSqlDatabase db;
-    QSqlQuery que;
+
+    QTcpServer *mTcpServer; ///< \brief Сервер
+    int server_status; ///< \brief Статус сервера
+    QMap<int,QTcpSocket *> SClients; ///< \brief Ассоциативный массив клиентов(id + socket)
+    QMap<std::string, std::string> logPass; ///< \brief Ассоциативный массив login + password
+    QSqlDatabase db; ///< \brief База данных
+    QSqlQuery que; ///< \brief Обращение к базе данных
 
 public slots:
     void slotNewConnection();
     void slotClientDisconnected();
     void slotServerRead();
     //void slotReadClient();
-private:
-
 };
 #endif // MYTCPSERVER_H
 

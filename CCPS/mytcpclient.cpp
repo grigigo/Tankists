@@ -1,5 +1,13 @@
 #include "mytcpclient.h"
 
+/*!
+ * \brief MyTcpClient::MyTcpClient - конструктор класса
+ * \details
+ * - Создает сокет пользовтелю
+ * - Настраивает IP-адрес сервера
+ * - Подключается к серверу на отправку и принятие данных
+ * \param parent - наследует QObject
+ */
 MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {
     client_socket = new QTcpSocket(this);
@@ -10,6 +18,9 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
     connect (client_socket, SIGNAL(readyRead()), SLOT(slot_readyRead()));
 }
 
+/*!
+ * \brief MyTcpClient::slot_connected - пустышка
+ */
 void MyTcpClient::slot_connected() {
     //client_socket->write()
     //QMessageBox Msg;
@@ -17,6 +28,13 @@ void MyTcpClient::slot_connected() {
     //Msg.exec();
 }
 
+/*!
+ * \brief MyTcpClient::slot_readyRead - слот чтения данных с сервера
+ * \details
+ * - Считывает сообщения, приходящие с сервера
+ * - Достает код из сообщения
+ * - Вызывает сигнал, соответствующий этому коду
+ */
 void MyTcpClient::slot_readyRead() {
     QByteArray array;
     QString message = "";
@@ -67,7 +85,11 @@ void MyTcpClient::slot_readyRead() {
     }
 }
 
-
+/*!
+ * \brief MyTcpClient::slot_send_to_server - слот отправки сообщения на сервер
+ * \details - Принимает на вход сообщение, пакует его в нужный тип данных и отправляет на сервер
+ * \param message - сообщение, которое нужно отправить
+ */
 void MyTcpClient::slot_send_to_server(QString message) {
     QByteArray array;
     array.append(message.toUtf8());
@@ -75,6 +97,9 @@ void MyTcpClient::slot_send_to_server(QString message) {
 
 }
 
+/*!
+ * \brief MyTcpClient::slot_disconnected - слот отсоединения пользователя от сервера
+ */
 void MyTcpClient::slot_disconnected() {
     client_socket->close();
 }

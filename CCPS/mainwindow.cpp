@@ -1,6 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+/*!
+ * \brief MainWindow::MainWindow - конструктор класса
+ * \details
+ * - Инициализирует объекты классов Work и ReqistrWindow и подключается к ним
+ * - Задает параметры окна и его элементов
+ * \param parent - наследует QWidget
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -43,12 +50,20 @@ MainWindow::MainWindow(QWidget *parent)
     }
 }
 
+/*!
+ * \brief MainWindow::~MainWindow - деструктор класса
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-
+/*!
+ * \brief MainWindow::onLoginYes - слот класса, подтверждающий авторизацию
+ *
+ * - Вызывается сигналом MyTcpClient::signAuthYes
+ * - Передает управление классу Work, передавая ему логин пользователя и объект класса Functions
+ */
 void MainWindow::onLoginYes()
 {
     QString login = ui->login->text();
@@ -58,13 +73,25 @@ void MainWindow::onLoginYes()
     work->show();
 }
 
+/*!
+ * \brief MainWindow::onLoginNope - слот класса, отклоняющий авторизацию
+ * \details - Показывает сообщение об отказе в авторизации
+ */
 void MainWindow::onLoginNope()
 {
-    ui->info->setWordWrap(true); // если отрицание, никуда не переходим
+    ui->info->setWordWrap(true);
     ui->info->setVisible(true);
 }
 
-void MainWindow::on_pushButton_clicked()  // кнопка авторизация
+/*!
+ * \brief MainWindow::on_pushButton_clicked - кнопка авторизации пользователя
+ *
+ * - Создает объект класса MyTcpClient, создавая тем самым соединение с сервером
+ * - Создает объект класса Functions, передавая объект класса MyTcpClient
+ * - Включает прослушку сигналов, поступающих с MyTcpClient
+ * - Считывает login и password и передает их как параметры в функцию Functions::authorize
+ */
+void MainWindow::on_pushButton_clicked()
 {
     mytcpclient = new MyTcpClient;
     user = new Functions(mytcpclient);
@@ -78,7 +105,11 @@ void MainWindow::on_pushButton_clicked()  // кнопка авторизация
     user->authorize(login, password);
 }
 
-void MainWindow::on_pushButton_2_clicked() // кнопка регистрация-назад
+/*!
+ * \brief MainWindow::on_pushButton_2_clicked - кнопка перехода на окно регистрации
+ * \details - Передает управление классу RegistrWindow
+ */
+void MainWindow::on_pushButton_2_clicked()
 {
     registr->show();
     this->close();
